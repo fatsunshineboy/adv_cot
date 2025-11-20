@@ -1,0 +1,3542 @@
+{
+  "Instruction_Generator": "Let's think step by step. Take the last letters of the words and concatenate them. Make sure the number of letters is consistent with the words and the order is the same. End the output with the answer is ...",
+  "Examples_Generator": [
+    {
+      "input": "Take the last letters of the words in 'Elon Musk' and concatenate them.",
+      "output": "The input contains 2 words: 'Elon' and 'Musk'. We should get 2 letters. The last letter of 'Elon' is 'n'. The last letter of 'Musk' is 'k'. The order of the letters follows the order of the words. Concatenating them gives 'nk'. The number of letters matches the number of words, and the order is preserved. The answer is nk."
+    },
+    {
+      "input": "Take the last letters of the words in 'Larry Page' and concatenate them.",
+      "output": "The input contains 2 words: 'Larry' and 'Page'. We should get 2 letters. The last letter of 'Larry' is 'y'. The last letter of 'Page' is 'e'. The order of the letters matches the order of the words. Concatenating them gives 'ye'. The number of letters is consistent with the number of words, and the order is preserved. The answer is ye."
+    },
+    {
+      "input": "Take the last letters of the words in 'Sergey Brin' and concatenate them.",
+      "output": "The input contains 2 words: 'Sergey' and 'Brin'. We should get 2 letters. The last letter of 'Sergey' is 'y'. The last letter of 'Brin' is 'n'. The order of the letters matches the order of the words. Concatenating them gives 'yn'. The number of letters is consistent with the number of words, and the order is preserved. The answer is yn."
+    },
+    {
+      "input": "Take the last letters of the words in 'Bill Gates' and concatenate them.",
+      "output": "The input contains 2 words: 'Bill' and 'Gates'. We should get 2 letters. The last letter of 'Bill' is 'l'. The last letter of 'Gates' is 's'. The order of the letters matches the order of the words. Concatenating them gives 'ls'. The number of letters is consistent with the number of words, and the order is preserved. The answer is ls."
+    }
+  ],
+  "Instruction_Discriminator": "Judge the answer is correct ground truth or generated fake answer and give the reasoning process. You should make a choice from the following two answers. (A) correct ground truth (B)generated fake answer. Check whether the number of letters is consistent with the words and whether the order is consistent",
+  "Examples_Discriminator": [
+    {
+      "input": "Input: Take the last letters of the words in 'Elon Musk' and concatenate them. Output: The last letter of 'Elon' is 'n'. The last letter of 'Musk' is 'k'. Concatenating them is 'nk'. So the answer is nk. ",
+      "output": "(A) correct ground truth. Reasoning: The word 'Elon' ends with 'n' and 'Musk' ends with 'k'. Concatenating 'n' and 'k' correctly gives 'nk'. The reasoning and final answer are logically sound."
+    },
+    {
+      "input": "Input: Take the last letters of the words in 'Larry Page' and concatenate them. Output: The last letter of 'Larry' is 'y'. The last letter of 'Page' is 'e'. Concatenating them is 'yee'. So the answer is yee.",
+      "output": "(B) generated fake answer. Reasoning: 'Larry' ends with 'y' and 'Page' ends with 'e'. Concatenating them should result in 'ye'. However, the output incorrectly gives 'yee', adding an extra 'e'. The number of letters is inconsistent with the instruction, so this is a generated fake answer."
+    },
+    {
+      "input": "Input: Take the last letters of the words in 'Sergey Brin' and concatenate them. Output: The last letter of 'Sergey' is 'y'. The last letter of 'Brin' is 'n'. Concatenating them is 'yn'. So the answer is ny.",
+      "output": "(B) generated fake answer. Reasoning: The last letter of 'Sergey' is 'y' and the last letter of 'Brin' is 'n'. Concatenating them in order gives 'yn', not 'ny'. The stated answer does not match the correct order of letters, so the answer is incorrect."
+    },
+    {
+      "input": "Input: Take the last letters of the words in 'Bill Gates' and concatenate them. Output: The last letter of 'Bill' is 'l'. The last letter of 'Gates' is 's'. Concatenating them is 'ls'. So the answer is ls.",
+      "output": "(A) correct ground truth. Reasoning: The last letter of 'Bill' is 'l' and the last letter of 'Gates' is 's'. Concatenating them gives 'ls'. The logic is sound and the answer is correct."
+    }
+  ],
+  "Instances": [
+    {
+      "id": "task1802_last_letter_0",
+      "input": "Take the last letters of each words in 'Camilo Becky Eliza Rebecca' and concatenate them.",
+      "output": [
+        "oyaa"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_1",
+      "input": "Take the last letters of each words in 'Sandeep Graciela Jai Xiomara' and concatenate them.",
+      "output": [
+        "paia"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_2",
+      "input": "Take the last letters of each words in 'Norma Timothy Willie Mathew' and concatenate them.",
+      "output": [
+        "ayew"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_3",
+      "input": "Take the last letters of each words in 'Lorena Shana Priscilla Summer' and concatenate them.",
+      "output": [
+        "aaar"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_4",
+      "input": "Take the last letters of each words in 'Yazmin Lea Rodrigo Sammy' and concatenate them.",
+      "output": [
+        "naoy"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_5",
+      "input": "Take the last letters of each words in 'Britt Tamara Elvis Nayeli' and concatenate them.",
+      "output": [
+        "tasi"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_6",
+      "input": "Take the last letters of each words in 'Paula Irina Laurel Maribel' and concatenate them.",
+      "output": [
+        "aall"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_7",
+      "input": "Take the last letters of each words in 'Louise Mariano Laura Gerardo' and concatenate them.",
+      "output": [
+        "eoao"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_8",
+      "input": "Take the last letters of each words in 'Ramona Lucy Gail Octavio' and concatenate them.",
+      "output": [
+        "aylo"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_9",
+      "input": "Take the last letters of each words in 'Star Jude Rosemarie Raquel' and concatenate them.",
+      "output": [
+        "reel"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_10",
+      "input": "Take the last letters of each words in 'Amy Ella Amilcar Roman' and concatenate them.",
+      "output": [
+        "yarn"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_11",
+      "input": "Take the last letters of each words in 'Evan Ray Sofia Alonso' and concatenate them.",
+      "output": [
+        "nyao"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_12",
+      "input": "Take the last letters of each words in 'Janette Stacey Ronny Kim' and concatenate them.",
+      "output": [
+        "eyym"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_13",
+      "input": "Take the last letters of each words in 'Alina Alessandra Amina Bianca' and concatenate them.",
+      "output": [
+        "aaaa"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_14",
+      "input": "Take the last letters of each words in 'Leigh Mindy Rocky Lex' and concatenate them.",
+      "output": [
+        "hyyx"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_15",
+      "input": "Take the last letters of each words in 'Drew Jhon Jayden Cliff' and concatenate them.",
+      "output": [
+        "wnnf"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_16",
+      "input": "Take the last letters of each words in 'Meagan Naomi Israel Marie' and concatenate them.",
+      "output": [
+        "nile"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_17",
+      "input": "Take the last letters of each words in 'Tiara Araceli Michaela Genaro' and concatenate them.",
+      "output": [
+        "aiao"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_18",
+      "input": "Take the last letters of each words in 'Sonya Eddy Carol Yung' and concatenate them.",
+      "output": [
+        "aylg"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_19",
+      "input": "Take the last letters of each words in 'Marcy Gonzalez Alice Arlene' and concatenate them.",
+      "output": [
+        "yzee"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_20",
+      "input": "Take the last letters of each words in 'Alonzo Dorothy Alfred Rodriguez' and concatenate them.",
+      "output": [
+        "oydz"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_21",
+      "input": "Take the last letters of each words in 'Dorian Mayra Freddie Magaly' and concatenate them.",
+      "output": [
+        "naey"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_22",
+      "input": "Take the last letters of each words in 'Tori Mariam Gaby Brayan' and concatenate them.",
+      "output": [
+        "imyn"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_23",
+      "input": "Take the last letters of each words in 'Maritza Nana Loretta Eric' and concatenate them.",
+      "output": [
+        "aaac"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_24",
+      "input": "Take the last letters of each words in 'Mercedes Adela Susana Rose' and concatenate them.",
+      "output": [
+        "saae"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_25",
+      "input": "Take the last letters of each words in 'Claudia Cole Matthew Juan Pablo' and concatenate them.",
+      "output": [
+        "aewo"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_26",
+      "input": "Take the last letters of each words in 'Kali Jeanette Tess Devin' and concatenate them.",
+      "output": [
+        "iesn"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_27",
+      "input": "Take the last letters of each words in 'Jacky Socorro Mark Wanda' and concatenate them.",
+      "output": [
+        "yoka"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_28",
+      "input": "Take the last letters of each words in 'Rosie Charlie Mick Jacquelyn' and concatenate them.",
+      "output": [
+        "eekn"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_29",
+      "input": "Take the last letters of each words in 'Andrés Miles Ronaldo Melinda' and concatenate them.",
+      "output": [
+        "ssoa"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_30",
+      "input": "Take the last letters of each words in 'Selina Tasha Jarrod Maddy' and concatenate them.",
+      "output": [
+        "aady"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_31",
+      "input": "Take the last letters of each words in 'Noelia Cassidy Ashok Francisco' and concatenate them.",
+      "output": [
+        "ayko"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_32",
+      "input": "Take the last letters of each words in 'Anastasia Thelma Sheri Rosita' and concatenate them.",
+      "output": [
+        "aaia"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_33",
+      "input": "Take the last letters of each words in 'Billie Paloma Tanner Raul' and concatenate them.",
+      "output": [
+        "earl"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_34",
+      "input": "Take the last letters of each words in 'Erwin Chad Margarito Shanna' and concatenate them.",
+      "output": [
+        "ndoa"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_35",
+      "input": "Take the last letters of each words in 'Paris Jimmie Andrew Ramón' and concatenate them.",
+      "output": [
+        "sewn"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_36",
+      "input": "Take the last letters of each words in 'Buddy Violet Johana Tina' and concatenate them.",
+      "output": [
+        "ytaa"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_37",
+      "input": "Take the last letters of each words in 'Lora Alberto Cathy Kara' and concatenate them.",
+      "output": [
+        "aoya"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_38",
+      "input": "Take the last letters of each words in 'Luz Terence Elder Jazmin' and concatenate them.",
+      "output": [
+        "zern"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_39",
+      "input": "Take the last letters of each words in 'Marlen Sonja Anita Dale' and concatenate them.",
+      "output": [
+        "naae"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_40",
+      "input": "Take the last letters of each words in 'Ericka Aly Darius Reed' and concatenate them.",
+      "output": [
+        "aysd"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_41",
+      "input": "Take the last letters of each words in 'Martha Elijah Dominic Tonya' and concatenate them.",
+      "output": [
+        "ahca"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_42",
+      "input": "Take the last letters of each words in 'Yamileth Dane Aron Dee' and concatenate them.",
+      "output": [
+        "hene"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_43",
+      "input": "Take the last letters of each words in 'Kristen Herbert Benny El' and concatenate them.",
+      "output": [
+        "ntyl"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_44",
+      "input": "Take the last letters of each words in 'Liliana Quincy Bart Makayla' and concatenate them.",
+      "output": [
+        "ayta"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_45",
+      "input": "Take the last letters of each words in 'María Fredy Bridgette Kenya' and concatenate them.",
+      "output": [
+        "ayea"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_46",
+      "input": "Take the last letters of each words in 'Alexander Marina Valentina Mila' and concatenate them.",
+      "output": [
+        "raaa"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_47",
+      "input": "Take the last letters of each words in 'Maxwell Jose Beto Joe' and concatenate them.",
+      "output": [
+        "leoe"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_48",
+      "input": "Take the last letters of each words in 'Carmelo Tony Susan Sara' and concatenate them.",
+      "output": [
+        "oyna"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_49",
+      "input": "Take the last letters of each words in 'Angeles Richard Luciana Darlene' and concatenate them.",
+      "output": [
+        "sdae"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_50",
+      "input": "Take the last letters of each words in 'Phillip Ajay Janie Augusto' and concatenate them.",
+      "output": [
+        "pyeo"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_51",
+      "input": "Take the last letters of each words in 'Andy Cecilia Gretchen Sandi' and concatenate them.",
+      "output": [
+        "yani"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_52",
+      "input": "Take the last letters of each words in 'Pedro Leopoldo Tee Mar' and concatenate them.",
+      "output": [
+        "ooer"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_53",
+      "input": "Take the last letters of each words in 'Pauline Kerry Jeannette Hope' and concatenate them.",
+      "output": [
+        "eyee"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_54",
+      "input": "Take the last letters of each words in 'Daniella Dianne Ram Mirian' and concatenate them.",
+      "output": [
+        "aemn"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_55",
+      "input": "Take the last letters of each words in 'Natalie Gilbert Brian Sanchez' and concatenate them.",
+      "output": [
+        "etnz"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_56",
+      "input": "Take the last letters of each words in 'Jorge Luis Mo Alexia Jerry' and concatenate them.",
+      "output": [
+        "soay"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_57",
+      "input": "Take the last letters of each words in 'Donnie Alli Terry Krystal' and concatenate them.",
+      "output": [
+        "eiyl"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_58",
+      "input": "Take the last letters of each words in 'Guillermo Gerry Lizbeth Charly' and concatenate them.",
+      "output": [
+        "oyhy"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_59",
+      "input": "Take the last letters of each words in 'Issa Kendra Ignacio Henry' and concatenate them.",
+      "output": [
+        "aaoy"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_60",
+      "input": "Take the last letters of each words in 'Bob Aman Richie Sana' and concatenate them.",
+      "output": [
+        "bnea"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_61",
+      "input": "Take the last letters of each words in 'Hazel Gabrielle Tre Dalton' and concatenate them.",
+      "output": [
+        "leen"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_62",
+      "input": "Take the last letters of each words in 'Carissa Paige Consuelo Izzy' and concatenate them.",
+      "output": [
+        "aeoy"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_63",
+      "input": "Take the last letters of each words in 'Jon Heath Reynaldo Catherine' and concatenate them.",
+      "output": [
+        "nhoe"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_64",
+      "input": "Take the last letters of each words in 'Evelyn Mason Shelby Aldo' and concatenate them.",
+      "output": [
+        "nnyo"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_65",
+      "input": "Take the last letters of each words in 'Alexandria Meghan Autumn Robert' and concatenate them.",
+      "output": [
+        "annt"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_66",
+      "input": "Take the last letters of each words in 'Angela Krista Cora Denisse' and concatenate them.",
+      "output": [
+        "aaae"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_67",
+      "input": "Take the last letters of each words in 'Juliet Ricardo Tita Dianna' and concatenate them.",
+      "output": [
+        "toaa"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_68",
+      "input": "Take the last letters of each words in 'Arthur Shan Norman Manny' and concatenate them.",
+      "output": [
+        "rnny"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_69",
+      "input": "Take the last letters of each words in 'Dustin Luiz Rolando Connor' and concatenate them.",
+      "output": [
+        "nzor"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_70",
+      "input": "Take the last letters of each words in 'Madeline Mckenzie Louie Dylan' and concatenate them.",
+      "output": [
+        "eeen"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_71",
+      "input": "Take the last letters of each words in 'Jeremy Simone Alondra Wyatt' and concatenate them.",
+      "output": [
+        "yeat"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_72",
+      "input": "Take the last letters of each words in 'Melody Ramiro Humberto Jacob' and concatenate them.",
+      "output": [
+        "yoob"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_73",
+      "input": "Take the last letters of each words in 'Ruben Bernardo Ariel Shelley' and concatenate them.",
+      "output": [
+        "noly"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_74",
+      "input": "Take the last letters of each words in 'Russell Mitchell Bee Faith' and concatenate them.",
+      "output": [
+        "lleh"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_75",
+      "input": "Take the last letters of each words in 'Salma Pj Gladis Monica' and concatenate them.",
+      "output": [
+        "ajsa"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_76",
+      "input": "Take the last letters of each words in 'Miranda Jacques Clarence Chandra' and concatenate them.",
+      "output": [
+        "asea"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_77",
+      "input": "Take the last letters of each words in 'Janice Shelly Arnulfo Nestor' and concatenate them.",
+      "output": [
+        "eyor"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_78",
+      "input": "Take the last letters of each words in 'Johan Damien Serena Grace' and concatenate them.",
+      "output": [
+        "nnae"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_79",
+      "input": "Take the last letters of each words in 'Arnold Aidan Ally Ami' and concatenate them.",
+      "output": [
+        "dnyi"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_80",
+      "input": "Take the last letters of each words in 'Rohan Antoinette Nikki Aida' and concatenate them.",
+      "output": [
+        "neia"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_81",
+      "input": "Take the last letters of each words in 'Scotty Edgar Hanna Austin' and concatenate them.",
+      "output": [
+        "yran"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_82",
+      "input": "Take the last letters of each words in 'Katia Mina Cam Ronda' and concatenate them.",
+      "output": [
+        "aama"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_83",
+      "input": "Take the last letters of each words in 'Kennedy Ginny Iliana Sky' and concatenate them.",
+      "output": [
+        "yyay"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_84",
+      "input": "Take the last letters of each words in 'Sophie Gregorio Avery Pooja' and concatenate them.",
+      "output": [
+        "eoya"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_85",
+      "input": "Take the last letters of each words in 'Dave Ernesto Liam Marsha' and concatenate them.",
+      "output": [
+        "eoma"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_86",
+      "input": "Take the last letters of each words in 'Kristine Van Marisol Preston' and concatenate them.",
+      "output": [
+        "enln"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_87",
+      "input": "Take the last letters of each words in 'Alexa Pilar Rod Nicola' and concatenate them.",
+      "output": [
+        "arda"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_88",
+      "input": "Take the last letters of each words in 'Todd Joni Gil Fran' and concatenate them.",
+      "output": [
+        "diln"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_89",
+      "input": "Take the last letters of each words in 'Yan Eunice Joseph Hugh' and concatenate them.",
+      "output": [
+        "nehh"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_90",
+      "input": "Take the last letters of each words in 'Elizabeth Mitch Brooke Jordyn' and concatenate them.",
+      "output": [
+        "hhen"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_91",
+      "input": "Take the last letters of each words in 'Bailey Lourdes Brianna Martín' and concatenate them.",
+      "output": [
+        "ysan"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_92",
+      "input": "Take the last letters of each words in 'Wally Claire Helen Nacho' and concatenate them.",
+      "output": [
+        "yeno"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_93",
+      "input": "Take the last letters of each words in 'Cat Alisha Ramon Norberto' and concatenate them.",
+      "output": [
+        "tano"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_94",
+      "input": "Take the last letters of each words in 'Miguel Angel Saul Brady Darryl' and concatenate them.",
+      "output": [
+        "llyl"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_95",
+      "input": "Take the last letters of each words in 'Debi Raymond Luis Federico' and concatenate them.",
+      "output": [
+        "idso"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_96",
+      "input": "Take the last letters of each words in 'Denny Carlo Reinaldo Jessi' and concatenate them.",
+      "output": [
+        "yooi"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_97",
+      "input": "Take the last letters of each words in 'Yvonne Rafaela Jb Salomon' and concatenate them.",
+      "output": [
+        "eabn"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_98",
+      "input": "Take the last letters of each words in 'Agnes Adrienne Haley Riley' and concatenate them.",
+      "output": [
+        "seyy"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_99",
+      "input": "Take the last letters of each words in 'Oscar George Sanjay Haydee' and concatenate them.",
+      "output": [
+        "reye"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_100",
+      "input": "Take the last letters of each words in 'Eugenio Moises Marion Kirk' and concatenate them.",
+      "output": [
+        "osnk"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_101",
+      "input": "Take the last letters of each words in 'Lara Greg Ethan Terrence' and concatenate them.",
+      "output": [
+        "agne"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_102",
+      "input": "Take the last letters of each words in 'Charity Svetlana Jamie Jose A' and concatenate them.",
+      "output": [
+        "yaeA"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_103",
+      "input": "Take the last letters of each words in 'Tristan Marleny Santiago Viviana' and concatenate them.",
+      "output": [
+        "nyoa"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_104",
+      "input": "Take the last letters of each words in 'Theo Sheila Mariana Esmeralda' and concatenate them.",
+      "output": [
+        "oaaa"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_105",
+      "input": "Take the last letters of each words in 'Tucker Daniel Hernandez Alison' and concatenate them.",
+      "output": [
+        "rlzn"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_106",
+      "input": "Take the last letters of each words in 'Charmaine Vic Homero Jeanine' and concatenate them.",
+      "output": [
+        "ecoe"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_107",
+      "input": "Take the last letters of each words in 'Dan Ruth Xavier Isidro' and concatenate them.",
+      "output": [
+        "nhro"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_108",
+      "input": "Take the last letters of each words in 'Amparo Gianna Dion Tessa' and concatenate them.",
+      "output": [
+        "oana"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_109",
+      "input": "Take the last letters of each words in 'Boris Sabina Kaitlyn Cameron' and concatenate them.",
+      "output": [
+        "sann"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_110",
+      "input": "Take the last letters of each words in 'Bill Santos Roxy Randi' and concatenate them.",
+      "output": [
+        "lsyi"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_111",
+      "input": "Take the last letters of each words in 'Silvia Carolina Stan Chuck' and concatenate them.",
+      "output": [
+        "aank"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_112",
+      "input": "Take the last letters of each words in 'Larissa Shawna Alma Paulette' and concatenate them.",
+      "output": [
+        "aaae"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_113",
+      "input": "Take the last letters of each words in 'Delia Kathleen Mateo Marvin' and concatenate them.",
+      "output": [
+        "anon"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_114",
+      "input": "Take the last letters of each words in 'Cristian Nik Gwen Josiah' and concatenate them.",
+      "output": [
+        "nknh"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_115",
+      "input": "Take the last letters of each words in 'Lalo Yolanda Elida Ester' and concatenate them.",
+      "output": [
+        "oaar"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_116",
+      "input": "Take the last letters of each words in 'Tere Niko Keith Conner' and concatenate them.",
+      "output": [
+        "eohr"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_117",
+      "input": "Take the last letters of each words in 'Blake Hunter Lou Spencer' and concatenate them.",
+      "output": [
+        "erur"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_118",
+      "input": "Take the last letters of each words in 'Deon Lane Everett Lindsay' and concatenate them.",
+      "output": [
+        "nety"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_119",
+      "input": "Take the last letters of each words in 'Marco Antonio Suzette Roland Isabel' and concatenate them.",
+      "output": [
+        "oedl"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_120",
+      "input": "Take the last letters of each words in 'Corey Elvin Tino Melvin' and concatenate them.",
+      "output": [
+        "ynon"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_121",
+      "input": "Take the last letters of each words in 'Darwin Colin Cj Abhishek' and concatenate them.",
+      "output": [
+        "nnjk"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_122",
+      "input": "Take the last letters of each words in 'Mario Pierre Amit Nelson' and concatenate them.",
+      "output": [
+        "oetn"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_123",
+      "input": "Take the last letters of each words in 'April Molly Maurice Jaclyn' and concatenate them.",
+      "output": [
+        "lyen"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_124",
+      "input": "Take the last letters of each words in 'Edwin Lovely Curt Damon' and concatenate them.",
+      "output": [
+        "nytn"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_125",
+      "input": "Take the last letters of each words in 'Beatriz Gillian Coco Vivian' and concatenate them.",
+      "output": [
+        "znon"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_126",
+      "input": "Take the last letters of each words in 'Cristobal Dania Li Anna' and concatenate them.",
+      "output": [
+        "laia"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_127",
+      "input": "Take the last letters of each words in 'Noah Aubrey Cesar Eliana' and concatenate them.",
+      "output": [
+        "hyra"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_128",
+      "input": "Take the last letters of each words in 'Sid Isabelle Jackson Heidy' and concatenate them.",
+      "output": [
+        "deny"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_129",
+      "input": "Take the last letters of each words in 'Dalila Emily Casey Clifford' and concatenate them.",
+      "output": [
+        "ayyd"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_130",
+      "input": "Take the last letters of each words in 'Isela Leslie Stacy Ingrid' and concatenate them.",
+      "output": [
+        "aeyd"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_131",
+      "input": "Take the last letters of each words in 'Jae Dennis Cris Bernadette' and concatenate them.",
+      "output": [
+        "esse"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_132",
+      "input": "Take the last letters of each words in 'Hank Janine Frankie Isa' and concatenate them.",
+      "output": [
+        "keea"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_133",
+      "input": "Take the last letters of each words in 'Lesley Luna Nadia Adriana' and concatenate them.",
+      "output": [
+        "yaaa"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_134",
+      "input": "Take the last letters of each words in 'Bethany Rakesh Christine Dinesh' and concatenate them.",
+      "output": [
+        "yheh"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_135",
+      "input": "Take the last letters of each words in 'Skylar Chrissy Misty Kike' and concatenate them.",
+      "output": [
+        "ryye"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_136",
+      "input": "Take the last letters of each words in 'Rosario Manoj Adolfo Reina' and concatenate them.",
+      "output": [
+        "ojoa"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_137",
+      "input": "Take the last letters of each words in 'Christina Edna Ileana Lynette' and concatenate them.",
+      "output": [
+        "aaae"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_138",
+      "input": "Take the last letters of each words in 'Emanuel Cheyenne Perez Yvette' and concatenate them.",
+      "output": [
+        "leze"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_139",
+      "input": "Take the last letters of each words in 'Yessenia Geraldine Minerva Tanya' and concatenate them.",
+      "output": [
+        "aeaa"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_140",
+      "input": "Take the last letters of each words in 'Jr Meredith Zoe Robby' and concatenate them.",
+      "output": [
+        "rhey"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_141",
+      "input": "Take the last letters of each words in 'Michel Roy Sergey Jessie' and concatenate them.",
+      "output": [
+        "lyye"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_142",
+      "input": "Take the last letters of each words in 'Noelle Byron Jane Darin' and concatenate them.",
+      "output": [
+        "enen"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_143",
+      "input": "Take the last letters of each words in 'Hayden Maya Zack Roberto' and concatenate them.",
+      "output": [
+        "nako"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_144",
+      "input": "Take the last letters of each words in 'Kristi Eduardo Angelo Clare' and concatenate them.",
+      "output": [
+        "iooe"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_145",
+      "input": "Take the last letters of each words in 'Dino Toby Abigail Manuela' and concatenate them.",
+      "output": [
+        "oyla"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_146",
+      "input": "Take the last letters of each words in 'Ángel Carlton Sameer Martinez' and concatenate them.",
+      "output": [
+        "lnrz"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_147",
+      "input": "Take the last letters of each words in 'Sterling Jenifer Patsy Denise' and concatenate them.",
+      "output": [
+        "grye"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_148",
+      "input": "Take the last letters of each words in 'Ashish Tracey Varun Emil' and concatenate them.",
+      "output": [
+        "hynl"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_149",
+      "input": "Take the last letters of each words in 'Isaac Reyes Carly Tania' and concatenate them.",
+      "output": [
+        "csya"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_150",
+      "input": "Take the last letters of each words in 'Clinton Yanira Barbara Betsy' and concatenate them.",
+      "output": [
+        "naay"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_151",
+      "input": "Take the last letters of each words in 'Violeta Clay Janelle Mac' and concatenate them.",
+      "output": [
+        "ayec"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_152",
+      "input": "Take the last letters of each words in 'Gavin Neha Asha Baltazar' and concatenate them.",
+      "output": [
+        "naar"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_153",
+      "input": "Take the last letters of each words in 'Bernard Lidia Sebastian Judy' and concatenate them.",
+      "output": [
+        "dany"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_154",
+      "input": "Take the last letters of each words in 'Pretty Jada Sarita Allen' and concatenate them.",
+      "output": [
+        "yaan"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_155",
+      "input": "Take the last letters of each words in 'Chava Rosalia Kurt Linda' and concatenate them.",
+      "output": [
+        "aata"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_156",
+      "input": "Take the last letters of each words in 'Renata Mariela Mona Kristin' and concatenate them.",
+      "output": [
+        "aaan"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_157",
+      "input": "Take the last letters of each words in 'Forrest Juanito Allan Candice' and concatenate them.",
+      "output": [
+        "tone"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_158",
+      "input": "Take the last letters of each words in 'Michele Karan Abraham Ellen' and concatenate them.",
+      "output": [
+        "enmn"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_159",
+      "input": "Take the last letters of each words in 'Lupita Cyndi Kay Derrick' and concatenate them.",
+      "output": [
+        "aiyk"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_160",
+      "input": "Take the last letters of each words in 'Wesley Marcelo Rodolfo Erick' and concatenate them.",
+      "output": [
+        "yook"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_161",
+      "input": "Take the last letters of each words in 'Bj Rigo Nigel Christian' and concatenate them.",
+      "output": [
+        "joln"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_162",
+      "input": "Take the last letters of each words in 'Tomas Nic Zoila Calvin' and concatenate them.",
+      "output": [
+        "scan"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_163",
+      "input": "Take the last letters of each words in 'Ubaldo Katrina Francis Lynn' and concatenate them.",
+      "output": [
+        "oasn"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_164",
+      "input": "Take the last letters of each words in 'Chandler Martina Leonardo Gregg' and concatenate them.",
+      "output": [
+        "raog"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_165",
+      "input": "Take the last letters of each words in 'Julieta Zachary Jared Tyson' and concatenate them.",
+      "output": [
+        "aydn"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_166",
+      "input": "Take the last letters of each words in 'Fred Nolan Johnathan Carson' and concatenate them.",
+      "output": [
+        "dnnn"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_167",
+      "input": "Take the last letters of each words in 'Franklin Rochelle Brent Sarai' and concatenate them.",
+      "output": [
+        "neti"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_168",
+      "input": "Take the last letters of each words in 'Nico Lorenzo Johanna Teresita' and concatenate them.",
+      "output": [
+        "ooaa"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_169",
+      "input": "Take the last letters of each words in 'Dallas Uriel Brendan Julian' and concatenate them.",
+      "output": [
+        "slnn"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_170",
+      "input": "Take the last letters of each words in 'Antonio Ronald Ken Rachael' and concatenate them.",
+      "output": [
+        "odnl"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_171",
+      "input": "Take the last letters of each words in 'Elle Alex Irma Stephan' and concatenate them.",
+      "output": [
+        "exan"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_172",
+      "input": "Take the last letters of each words in 'Vijay Sherrie Doug Suzy' and concatenate them.",
+      "output": [
+        "yegy"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_173",
+      "input": "Take the last letters of each words in 'Daphne Lola Joanna Sheena' and concatenate them.",
+      "output": [
+        "eaaa"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_174",
+      "input": "Take the last letters of each words in 'Angelina Layla Jenny Zane' and concatenate them.",
+      "output": [
+        "aaye"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_175",
+      "input": "Take the last letters of each words in 'Sunny Trisha Paul Guy' and concatenate them.",
+      "output": [
+        "yaly"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_176",
+      "input": "Take the last letters of each words in 'Belkis Wendell Lissette Patricia' and concatenate them.",
+      "output": [
+        "slea"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_177",
+      "input": "Take the last letters of each words in 'Deandre Moe Jack Vanessa' and concatenate them.",
+      "output": [
+        "eeka"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_178",
+      "input": "Take the last letters of each words in 'Allyson Mara Jo Toni' and concatenate them.",
+      "output": [
+        "naoi"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_179",
+      "input": "Take the last letters of each words in 'Paulo Tatyana Bernice Raúl' and concatenate them.",
+      "output": [
+        "oael"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_180",
+      "input": "Take the last letters of each words in 'Jordan Yoni Lawrence Aura' and concatenate them.",
+      "output": [
+        "niea"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_181",
+      "input": "Take the last letters of each words in 'Talia Nicki Tia Divya' and concatenate them.",
+      "output": [
+        "aiaa"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_182",
+      "input": "Take the last letters of each words in 'Bobbi Tamika Zac Lala' and concatenate them.",
+      "output": [
+        "iaca"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_183",
+      "input": "Take the last letters of each words in 'Billy Kassandra Joy Abe' and concatenate them.",
+      "output": [
+        "yaye"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_184",
+      "input": "Take the last letters of each words in 'Damian Crystal Nisha Hernan' and concatenate them.",
+      "output": [
+        "nlan"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_185",
+      "input": "Take the last letters of each words in 'Jorge Natalia Bryant Kiran' and concatenate them.",
+      "output": [
+        "eatn"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_186",
+      "input": "Take the last letters of each words in 'Maria Elena Dewayne Mj Elliott' and concatenate them.",
+      "output": [
+        "aejt"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_187",
+      "input": "Take the last letters of each words in 'Maura Selvin Tabitha Gino' and concatenate them.",
+      "output": [
+        "anao"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_188",
+      "input": "Take the last letters of each words in 'Lynda Danilo Jonny Judith' and concatenate them.",
+      "output": [
+        "aoyh"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_189",
+      "input": "Take the last letters of each words in 'Denis Gigi Heather Ginger' and concatenate them.",
+      "output": [
+        "sirr"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_190",
+      "input": "Take the last letters of each words in 'Caroline Demetrius Fidel Solomon' and concatenate them.",
+      "output": [
+        "esln"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_191",
+      "input": "Take the last letters of each words in 'Maureen Fabian Claudette Peyton' and concatenate them.",
+      "output": [
+        "nnen"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_192",
+      "input": "Take the last letters of each words in 'Rogelio Freddy Ivan Madeleine' and concatenate them.",
+      "output": [
+        "oyne"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_193",
+      "input": "Take the last letters of each words in 'Hilario Magdalena Morris Patricio' and concatenate them.",
+      "output": [
+        "oaso"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_194",
+      "input": "Take the last letters of each words in 'Fermin Berenice Marianne Eleanor' and concatenate them.",
+      "output": [
+        "neer"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_195",
+      "input": "Take the last letters of each words in 'Glenda Beverly Agustin Igor' and concatenate them.",
+      "output": [
+        "aynr"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_196",
+      "input": "Take the last letters of each words in 'Shannon Millie Rosemary Priyanka' and concatenate them.",
+      "output": [
+        "neya"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_197",
+      "input": "Take the last letters of each words in 'Conrad Marcella Annette Esteban' and concatenate them.",
+      "output": [
+        "daen"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_198",
+      "input": "Take the last letters of each words in 'Sherri Genesis Jeffrey Samir' and concatenate them.",
+      "output": [
+        "isyr"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_199",
+      "input": "Take the last letters of each words in 'Anand Estefania Stanley Lizette' and concatenate them.",
+      "output": [
+        "daye"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_200",
+      "input": "Take the last letters of each words in 'Liz Andrea Suresh Vera' and concatenate them.",
+      "output": [
+        "zaha"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_201",
+      "input": "Take the last letters of each words in 'Carolyn Sasha Mercy Keri' and concatenate them.",
+      "output": [
+        "nayi"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_202",
+      "input": "Take the last letters of each words in 'Neil Dani Eddie Marcelino' and concatenate them.",
+      "output": [
+        "lieo"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_203",
+      "input": "Take the last letters of each words in 'Nery Cindy Jess Chris' and concatenate them.",
+      "output": [
+        "yyss"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_204",
+      "input": "Take the last letters of each words in 'Cheri Rico Teo Jesus' and concatenate them.",
+      "output": [
+        "ioos"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_205",
+      "input": "Take the last letters of each words in 'Candy Megan Ed Nathan' and concatenate them.",
+      "output": [
+        "yndn"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_206",
+      "input": "Take the last letters of each words in 'Luisa Tatiana Drake Hillary' and concatenate them.",
+      "output": [
+        "aaey"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_207",
+      "input": "Take the last letters of each words in 'Mickey Dom Lilly Eloy' and concatenate them.",
+      "output": [
+        "ymyy"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_208",
+      "input": "Take the last letters of each words in 'Margaret Rosi Willy Charlene' and concatenate them.",
+      "output": [
+        "tiye"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_209",
+      "input": "Take the last letters of each words in 'Philip Antony Iris Alicia' and concatenate them.",
+      "output": [
+        "pysa"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_210",
+      "input": "Take the last letters of each words in 'Lucio Víctor Lester Allie' and concatenate them.",
+      "output": [
+        "orre"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_211",
+      "input": "Take the last letters of each words in 'Julio Sidney Aiden Shay' and concatenate them.",
+      "output": [
+        "oyny"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_212",
+      "input": "Take the last letters of each words in 'Ari Jasmine Elliot Kendrick' and concatenate them.",
+      "output": [
+        "ietk"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_213",
+      "input": "Take the last letters of each words in 'Angel Sheryl Dulce Kenny' and concatenate them.",
+      "output": [
+        "lley"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_214",
+      "input": "Take the last letters of each words in 'Breanna Trey Omar Patrice' and concatenate them.",
+      "output": [
+        "ayre"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_215",
+      "input": "Take the last letters of each words in 'Gabe Dora Aileen Modesto' and concatenate them.",
+      "output": [
+        "eano"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_216",
+      "input": "Take the last letters of each words in 'Miriam Brandy Bertha Renato' and concatenate them.",
+      "output": [
+        "myao"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_217",
+      "input": "Take the last letters of each words in 'Jose Luis Kiara Arun Josefina' and concatenate them.",
+      "output": [
+        "sana"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_218",
+      "input": "Take the last letters of each words in 'Gerson Roxanne Deborah Nathaniel' and concatenate them.",
+      "output": [
+        "nehl"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_219",
+      "input": "Take the last letters of each words in 'Juana Chip Lila Jayme' and concatenate them.",
+      "output": [
+        "apae"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_220",
+      "input": "Take the last letters of each words in 'Victoria Aurora Amalia Princess' and concatenate them.",
+      "output": [
+        "aaas"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_221",
+      "input": "Take the last letters of each words in 'Jeremiah Kelley Josue Veronica' and concatenate them.",
+      "output": [
+        "hyea"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_222",
+      "input": "Take the last letters of each words in 'Marc Doris Ernie Gary' and concatenate them.",
+      "output": [
+        "csey"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_223",
+      "input": "Take the last letters of each words in 'Conor Randall Oleg Stephanie' and concatenate them.",
+      "output": [
+        "rlge"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_224",
+      "input": "Take the last letters of each words in 'Bruce Dena Kyla Robbie' and concatenate them.",
+      "output": [
+        "eaae"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_225",
+      "input": "Take the last letters of each words in 'Gee Joseluis Cory Stefanie' and concatenate them.",
+      "output": [
+        "esye"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_226",
+      "input": "Take the last letters of each words in 'Juan Jose Dalia Destiny Amelia' and concatenate them.",
+      "output": [
+        "eaya"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_227",
+      "input": "Take the last letters of each words in 'Felipe Heidi Nino Bradley' and concatenate them.",
+      "output": [
+        "eioy"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_228",
+      "input": "Take the last letters of each words in 'Dany Hilda Butch Mahesh' and concatenate them.",
+      "output": [
+        "yahh"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_229",
+      "input": "Take the last letters of each words in 'Zach Trenton Cary Beth' and concatenate them.",
+      "output": [
+        "hnyh"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_230",
+      "input": "Take the last letters of each words in 'Cinthia Lloyd Jacqueline Jc' and concatenate them.",
+      "output": [
+        "adec"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_231",
+      "input": "Take the last letters of each words in 'Walter Mikayla Larry Ryan' and concatenate them.",
+      "output": [
+        "rayn"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_232",
+      "input": "Take the last letters of each words in 'Trish Vero Victor Clemente' and concatenate them.",
+      "output": [
+        "hore"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_233",
+      "input": "Take the last letters of each words in 'Rocio Sandy Anahi Latasha' and concatenate them.",
+      "output": [
+        "oyia"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_234",
+      "input": "Take the last letters of each words in 'Juan Manuel Benjamin Rory Rafael' and concatenate them.",
+      "output": [
+        "lnyl"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_235",
+      "input": "Take the last letters of each words in 'Braulio Staci Jocelyn Brittany' and concatenate them.",
+      "output": [
+        "oiny"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_236",
+      "input": "Take the last letters of each words in 'Carlitos Damaris Nikhil Jennie' and concatenate them.",
+      "output": [
+        "ssle"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_237",
+      "input": "Take the last letters of each words in 'Chantal Ines Valeria Francesca' and concatenate them.",
+      "output": [
+        "lsaa"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_238",
+      "input": "Take the last letters of each words in 'Clayton Edison Debbie Elvira' and concatenate them.",
+      "output": [
+        "nnea"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_239",
+      "input": "Take the last letters of each words in 'Morgan Perla Joao Marta' and concatenate them.",
+      "output": [
+        "naoa"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_240",
+      "input": "Take the last letters of each words in 'Janet Ant Vickie Elias' and concatenate them.",
+      "output": [
+        "ttes"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_241",
+      "input": "Take the last letters of each words in 'Kelvin Brennan Carina Paty' and concatenate them.",
+      "output": [
+        "nnay"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_242",
+      "input": "Take the last letters of each words in 'Julia Kirsten Pam Adan' and concatenate them.",
+      "output": [
+        "anmn"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_243",
+      "input": "Take the last letters of each words in 'Lacey Nora Debra Ashleigh' and concatenate them.",
+      "output": [
+        "yaah"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_244",
+      "input": "Take the last letters of each words in 'Carlos Jackie Callie Caitlin' and concatenate them.",
+      "output": [
+        "seen"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_245",
+      "input": "Take the last letters of each words in 'Alec Arianna Corina Juancarlos' and concatenate them.",
+      "output": [
+        "caas"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_246",
+      "input": "Take the last letters of each words in 'Letty Aimee Elvia Ted' and concatenate them.",
+      "output": [
+        "yead"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_247",
+      "input": "Take the last letters of each words in 'Seth Dario Anne Jodie' and concatenate them.",
+      "output": [
+        "hoee"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_248",
+      "input": "Take the last letters of each words in 'Maryam Susy Trinity Pearl' and concatenate them.",
+      "output": [
+        "myyl"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_249",
+      "input": "Take the last letters of each words in 'Marshall Herman Faye Grant' and concatenate them.",
+      "output": [
+        "lnet"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_250",
+      "input": "Take the last letters of each words in 'Kelly Cheryl Nancy Jojo' and concatenate them.",
+      "output": [
+        "ylyo"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_251",
+      "input": "Take the last letters of each words in 'Gisela Gerald Mackenzie Ashley' and concatenate them.",
+      "output": [
+        "adey"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_252",
+      "input": "Take the last letters of each words in 'Rachel Alisa Fanny Jeffery' and concatenate them.",
+      "output": [
+        "layy"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_253",
+      "input": "Take the last letters of each words in 'Roberta Mauro Clint Marcela' and concatenate them.",
+      "output": [
+        "aota"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_254",
+      "input": "Take the last letters of each words in 'Angelique Marissa Phyllis Bonnie' and concatenate them.",
+      "output": [
+        "ease"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_255",
+      "input": "Take the last letters of each words in 'Logan Ely Abbie Colleen' and concatenate them.",
+      "output": [
+        "nyen"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_256",
+      "input": "Take the last letters of each words in 'Sunil Tiana Darla Darnell' and concatenate them.",
+      "output": [
+        "laal"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_257",
+      "input": "Take the last letters of each words in 'Joyce Leroy Alyssa Maggie' and concatenate them.",
+      "output": [
+        "eyae"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_258",
+      "input": "Take the last letters of each words in 'Orlando Colby Julius Ofelia' and concatenate them.",
+      "output": [
+        "oysa"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_259",
+      "input": "Take the last letters of each words in 'Irvin Brittney Vince Lucas' and concatenate them.",
+      "output": [
+        "nyes"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_260",
+      "input": "Take the last letters of each words in 'Margarita Anabel Shaun Celina' and concatenate them.",
+      "output": [
+        "alna"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_261",
+      "input": "Take the last letters of each words in 'Malcolm Hussein Franco Hugo' and concatenate them.",
+      "output": [
+        "mnoo"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_262",
+      "input": "Take the last letters of each words in 'Rosendo Shayla Erica Georgia' and concatenate them.",
+      "output": [
+        "oaaa"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_263",
+      "input": "Take the last letters of each words in 'Manolo Bobbie Ash Jaqueline' and concatenate them.",
+      "output": [
+        "oehe"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_264",
+      "input": "Take the last letters of each words in 'Brandon Ivonne Jefferson Isabella' and concatenate them.",
+      "output": [
+        "nena"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_265",
+      "input": "Take the last letters of each words in 'Jason Betty Elisa Jay' and concatenate them.",
+      "output": [
+        "nyay"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_266",
+      "input": "Take the last letters of each words in 'Cristina Saad Bridget Katie' and concatenate them.",
+      "output": [
+        "adte"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_267",
+      "input": "Take the last letters of each words in 'Myriam José Cecy Faisal' and concatenate them.",
+      "output": [
+        "méyl"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_268",
+      "input": "Take the last letters of each words in 'Emiliano Jasmin Wade Vilma' and concatenate them.",
+      "output": [
+        "onea"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_269",
+      "input": "Take the last letters of each words in 'Salvador Sol Tyler Kareem' and concatenate them.",
+      "output": [
+        "rlrm"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_270",
+      "input": "Take the last letters of each words in 'Lizzy Juany Aisha Brenda' and concatenate them.",
+      "output": [
+        "yyaa"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_271",
+      "input": "Take the last letters of each words in 'Wilfredo Abby Karthik Perry' and concatenate them.",
+      "output": [
+        "oyky"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_272",
+      "input": "Take the last letters of each words in 'Wilmer Valerie Melissa Eloisa' and concatenate them.",
+      "output": [
+        "reaa"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_273",
+      "input": "Take the last letters of each words in 'Wilson Abbey Harold Nelly' and concatenate them.",
+      "output": [
+        "nydy"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_274",
+      "input": "Take the last letters of each words in 'Maricruz Alfredo Barry Deepak' and concatenate them.",
+      "output": [
+        "zoyk"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_275",
+      "input": "Take the last letters of each words in 'Bernie Melina Kelsey Rusty' and concatenate them.",
+      "output": [
+        "eayy"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_276",
+      "input": "Take the last letters of each words in 'Arturo Dominick Christa Myles' and concatenate them.",
+      "output": [
+        "okas"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_277",
+      "input": "Take the last letters of each words in 'Mel Josh Alejandra Harley' and concatenate them.",
+      "output": [
+        "lhay"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_278",
+      "input": "Take the last letters of each words in 'Timmy Katherine Gabriel Nate' and concatenate them.",
+      "output": [
+        "yele"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_279",
+      "input": "Take the last letters of each words in 'Kristy Brandi Lizeth Petra' and concatenate them.",
+      "output": [
+        "yiha"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_280",
+      "input": "Take the last letters of each words in 'Gabino Kayla Laurie Familia' and concatenate them.",
+      "output": [
+        "oaea"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_281",
+      "input": "Take the last letters of each words in 'Caleb Chase Eleazar Chanel' and concatenate them.",
+      "output": [
+        "berl"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_282",
+      "input": "Take the last letters of each words in 'Christy Rey Michelle Dolly' and concatenate them.",
+      "output": [
+        "yyey"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_283",
+      "input": "Take the last letters of each words in 'Hailey Avi Bree Samira' and concatenate them.",
+      "output": [
+        "yiea"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_284",
+      "input": "Take the last letters of each words in 'Adalberto Jamal Carter Robyn' and concatenate them.",
+      "output": [
+        "olrn"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_285",
+      "input": "Take the last letters of each words in 'Regina Joel Justice Eli' and concatenate them.",
+      "output": [
+        "alei"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_286",
+      "input": "Take the last letters of each words in 'Frank Trevor Al Gabriella' and concatenate them.",
+      "output": [
+        "krla"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_287",
+      "input": "Take the last letters of each words in 'Guille Lisa Harvey Gina' and concatenate them.",
+      "output": [
+        "eaya"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_288",
+      "input": "Take the last letters of each words in 'Angelica Tariq Ursula Nena' and concatenate them.",
+      "output": [
+        "aqaa"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_289",
+      "input": "Take the last letters of each words in 'Brooklyn Dawn Tay Gene' and concatenate them.",
+      "output": [
+        "nnye"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_290",
+      "input": "Take the last letters of each words in 'Garry Arielle Elba Rodney' and concatenate them.",
+      "output": [
+        "yeay"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_291",
+      "input": "Take the last letters of each words in 'King Edith Traci Flor' and concatenate them.",
+      "output": [
+        "ghir"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_292",
+      "input": "Take the last letters of each words in 'Irving Hans Moses Nicole' and concatenate them.",
+      "output": [
+        "gsse"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_293",
+      "input": "Take the last letters of each words in 'Gayle Doreen Chelsey Helena' and concatenate them.",
+      "output": [
+        "enya"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_294",
+      "input": "Take the last letters of each words in 'Raymundo Jonathon Lexi Rony' and concatenate them.",
+      "output": [
+        "oniy"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_295",
+      "input": "Take the last letters of each words in 'Clarissa Shauna Alexis Branden' and concatenate them.",
+      "output": [
+        "aasn"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_296",
+      "input": "Take the last letters of each words in 'Lorraine Corinne Kate Floyd' and concatenate them.",
+      "output": [
+        "eeed"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_297",
+      "input": "Take the last letters of each words in 'Marcia Belen Reyna Britney' and concatenate them.",
+      "output": [
+        "anay"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_298",
+      "input": "Take the last letters of each words in 'Teri Lina Mery Melanie' and concatenate them.",
+      "output": [
+        "iaye"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_299",
+      "input": "Take the last letters of each words in 'Geovanny Tom Katelyn Jennifer' and concatenate them.",
+      "output": [
+        "ymnr"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_300",
+      "input": "Take the last letters of each words in 'Itzel Anderson Kenia Edy' and concatenate them.",
+      "output": [
+        "lnay"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_301",
+      "input": "Take the last letters of each words in 'Barb Gage Kristian Asia' and concatenate them.",
+      "output": [
+        "bena"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_302",
+      "input": "Take the last letters of each words in 'Mia Art Samantha Lety' and concatenate them.",
+      "output": [
+        "atay"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_303",
+      "input": "Take the last letters of each words in 'Les Jun Noe Juliana' and concatenate them.",
+      "output": [
+        "snea"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_304",
+      "input": "Take the last letters of each words in 'Chance Valentin Micah Clara' and concatenate them.",
+      "output": [
+        "enha"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_305",
+      "input": "Take the last letters of each words in 'Cristal Roxana Rajesh Danny' and concatenate them.",
+      "output": [
+        "lahy"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_306",
+      "input": "Take the last letters of each words in 'Aj Jd Maddie Francisca' and concatenate them.",
+      "output": [
+        "jdea"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_307",
+      "input": "Take the last letters of each words in 'Max Mikey Cynthia Holly' and concatenate them.",
+      "output": [
+        "xyay"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_308",
+      "input": "Take the last letters of each words in 'Georgina Joshua Lindsey César' and concatenate them.",
+      "output": [
+        "aayr"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_309",
+      "input": "Take the last letters of each words in 'Jessy Libby Danielle Red' and concatenate them.",
+      "output": [
+        "yyed"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_310",
+      "input": "Take the last letters of each words in 'Leticia Jacinto Natasha Raphael' and concatenate them.",
+      "output": [
+        "aoal"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_311",
+      "input": "Take the last letters of each words in 'Manuel Aurelio India Rosalba' and concatenate them.",
+      "output": [
+        "loaa"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_312",
+      "input": "Take the last letters of each words in 'June Robin Josie Bo' and concatenate them.",
+      "output": [
+        "eneo"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_313",
+      "input": "Take the last letters of each words in 'Roni Nikita Hannah Kiana' and concatenate them.",
+      "output": [
+        "iaha"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_314",
+      "input": "Take the last letters of each words in 'Flora Warren Gwendolyn Alissa' and concatenate them.",
+      "output": [
+        "anna"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_315",
+      "input": "Take the last letters of each words in 'Clark Jenn Diane Blair' and concatenate them.",
+      "output": [
+        "kner"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_316",
+      "input": "Take the last letters of each words in 'Abdi Clyde Ana Maria Pepe' and concatenate them.",
+      "output": [
+        "ieae"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_317",
+      "input": "Take the last letters of each words in 'Dana German Alvin Braden' and concatenate them.",
+      "output": [
+        "annn"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_318",
+      "input": "Take the last letters of each words in 'Emely Chelsea Vladimir Tyrone' and concatenate them.",
+      "output": [
+        "yare"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_319",
+      "input": "Take the last letters of each words in 'Sabrina Pete Mary La' and concatenate them.",
+      "output": [
+        "aeya"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_320",
+      "input": "Take the last letters of each words in 'Reginald Franky Kira Gordon' and concatenate them.",
+      "output": [
+        "dyan"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_321",
+      "input": "Take the last letters of each words in 'Salvatore Gustavo Jill Celeste' and concatenate them.",
+      "output": [
+        "eole"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_322",
+      "input": "Take the last letters of each words in 'Sherry Ben Allison Anthony' and concatenate them.",
+      "output": [
+        "ynny"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_323",
+      "input": "Take the last letters of each words in 'Prince Rene Vishal Patrick' and concatenate them.",
+      "output": [
+        "eelk"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_324",
+      "input": "Take the last letters of each words in 'Lazaro Ana Charlotte Precious' and concatenate them.",
+      "output": [
+        "oaes"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_325",
+      "input": "Take the last letters of each words in 'Laila Audrey Glenn Rhonda' and concatenate them.",
+      "output": [
+        "ayna"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_326",
+      "input": "Take the last letters of each words in 'Leanne Lulu Lopez Jp' and concatenate them.",
+      "output": [
+        "euzp"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_327",
+      "input": "Take the last letters of each words in 'Geo Kody Isaias Giovanni' and concatenate them.",
+      "output": [
+        "oysi"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_328",
+      "input": "Take the last letters of each words in 'Otto Marjorie Leonor Esther' and concatenate them.",
+      "output": [
+        "oerr"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_329",
+      "input": "Take the last letters of each words in 'Debora Jayson Donna Sai' and concatenate them.",
+      "output": [
+        "anai"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_330",
+      "input": "Take the last letters of each words in 'Jim Dwayne Ricky Artemio' and concatenate them.",
+      "output": [
+        "meyo"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_331",
+      "input": "Take the last letters of each words in 'Fausto Tito Jade Terrance' and concatenate them.",
+      "output": [
+        "ooee"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_332",
+      "input": "Take the last letters of each words in 'Lionel Fiona Bobby Janeth' and concatenate them.",
+      "output": [
+        "layh"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_333",
+      "input": "Take the last letters of each words in 'Chloe Flaco Theodore Nathalie' and concatenate them.",
+      "output": [
+        "eoee"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_334",
+      "input": "Take the last letters of each words in 'Leon Payton Stefan Javi' and concatenate them.",
+      "output": [
+        "nnni"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_335",
+      "input": "Take the last letters of each words in 'Micaela Kevin Diamond Ty' and concatenate them.",
+      "output": [
+        "andy"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_336",
+      "input": "Take the last letters of each words in 'Ralph Jeanne Kyle Alejandro' and concatenate them.",
+      "output": [
+        "heeo"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_337",
+      "input": "Take the last letters of each words in 'Donovan Lonnie Jairo Mariah' and concatenate them.",
+      "output": [
+        "neoh"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_338",
+      "input": "Take the last letters of each words in 'Selena Keisha Gladys Cedric' and concatenate them.",
+      "output": [
+        "aasc"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_339",
+      "input": "Take the last letters of each words in 'Martin Sage Tanisha Rick' and concatenate them.",
+      "output": [
+        "neak"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_340",
+      "input": "Take the last letters of each words in 'Deanna Terri Gabriela Jonah' and concatenate them.",
+      "output": [
+        "aiah"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_341",
+      "input": "Take the last letters of each words in 'Missy Erin Lorna Lenny' and concatenate them.",
+      "output": [
+        "ynay"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_342",
+      "input": "Take the last letters of each words in 'Daryl Owen Myra Aaron' and concatenate them.",
+      "output": [
+        "lnan"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_343",
+      "input": "Take the last letters of each words in 'Eugenia Kellie Quentin Mike' and concatenate them.",
+      "output": [
+        "aene"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_344",
+      "input": "Take the last letters of each words in 'Jeff Jen Giselle Noel' and concatenate them.",
+      "output": [
+        "fnel"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_345",
+      "input": "Take the last letters of each words in 'Virginia Juanita Zak Wayne' and concatenate them.",
+      "output": [
+        "aake"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_346",
+      "input": "Take the last letters of each words in 'Nubia Sarah Jalen Kris' and concatenate them.",
+      "output": [
+        "ahns"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_347",
+      "input": "Take the last letters of each words in 'Vicente Dayana Kasey Lin' and concatenate them.",
+      "output": [
+        "eayn"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_348",
+      "input": "Take the last letters of each words in 'Peggy Trent Darrell Pamela' and concatenate them.",
+      "output": [
+        "ytla"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_349",
+      "input": "Take the last letters of each words in 'Earl Rudy Harrison Nadine' and concatenate them.",
+      "output": [
+        "lyne"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_350",
+      "input": "Take the last letters of each words in 'Kristie Johnnie Marisa Derick' and concatenate them.",
+      "output": [
+        "eeak"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_351",
+      "input": "Take the last letters of each words in 'Elva Kari Shirley Gilberto' and concatenate them.",
+      "output": [
+        "aiyo"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_352",
+      "input": "Take the last letters of each words in 'Guadalupe Ebony Wil Luke' and concatenate them.",
+      "output": [
+        "eyle"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_353",
+      "input": "Take the last letters of each words in 'Len Marquis Kylie Sandra' and concatenate them.",
+      "output": [
+        "nsea"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_354",
+      "input": "Take the last letters of each words in 'Lamont Frederick Lance Esperanza' and concatenate them.",
+      "output": [
+        "tkea"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_355",
+      "input": "Take the last letters of each words in 'Mya Fernando Bubba Tommy' and concatenate them.",
+      "output": [
+        "aoay"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_356",
+      "input": "Take the last letters of each words in 'Donny Lucero Christopher Gregory' and concatenate them.",
+      "output": [
+        "yory"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_357",
+      "input": "Take the last letters of each words in 'Annie Toño Sharon Delores' and concatenate them.",
+      "output": [
+        "eons"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_358",
+      "input": "Take the last letters of each words in 'Gabby Reese Leah Celia' and concatenate them.",
+      "output": [
+        "yeha"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_359",
+      "input": "Take the last letters of each words in 'Guillermina Evelin Dominique Johnny' and concatenate them.",
+      "output": [
+        "aney"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_360",
+      "input": "Take the last letters of each words in 'Constance Nicholas Will Love' and concatenate them.",
+      "output": [
+        "esle"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_361",
+      "input": "Take the last letters of each words in 'Jenni Leonel Micheal Kat' and concatenate them.",
+      "output": [
+        "illt"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_362",
+      "input": "Take the last letters of each words in 'Krishna Catalina Eileen Teddy' and concatenate them.",
+      "output": [
+        "aany"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_363",
+      "input": "Take the last letters of each words in 'Teresa Reid Karin Gracie' and concatenate them.",
+      "output": [
+        "adne"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_364",
+      "input": "Take the last letters of each words in 'Jody Juan Rebekah Kaylee' and concatenate them.",
+      "output": [
+        "ynhe"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_365",
+      "input": "Take the last letters of each words in 'Anil Enrique Jimmy Jhonny' and concatenate them.",
+      "output": [
+        "leyy"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_366",
+      "input": "Take the last letters of each words in 'Yajaira Terrell Adam Lexie' and concatenate them.",
+      "output": [
+        "alme"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_367",
+      "input": "Take the last letters of each words in 'Donald Lia Gonzalo Lily' and concatenate them.",
+      "output": [
+        "daoy"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_368",
+      "input": "Take the last letters of each words in 'Antoine Javier Brett Stewart' and concatenate them.",
+      "output": [
+        "ertt"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_369",
+      "input": "Take the last letters of each words in 'Penny Harry Jessica Horacio' and concatenate them.",
+      "output": [
+        "yyao"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_370",
+      "input": "Take the last letters of each words in 'Sue Cassandra Cody Cali' and concatenate them.",
+      "output": [
+        "eayi"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_371",
+      "input": "Take the last letters of each words in 'Cassie Clifton Erik Everardo' and concatenate them.",
+      "output": [
+        "enko"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_372",
+      "input": "Take the last letters of each words in 'Loren Wes Dean Hayley' and concatenate them.",
+      "output": [
+        "nsny"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_373",
+      "input": "Take the last letters of each words in 'Bri Roger Eve Diana' and concatenate them.",
+      "output": [
+        "irea"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_374",
+      "input": "Take the last letters of each words in 'Desmond Camille Joana Garcia' and concatenate them.",
+      "output": [
+        "deaa"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_375",
+      "input": "Take the last letters of each words in 'Albert Felicia Margo Patty' and concatenate them.",
+      "output": [
+        "taoy"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_376",
+      "input": "Take the last letters of each words in 'Kristopher Deb Jake Tammy' and concatenate them.",
+      "output": [
+        "rbey"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_377",
+      "input": "Take the last letters of each words in 'Lore Erasmo Louis David' and concatenate them.",
+      "output": [
+        "eosd"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_378",
+      "input": "Take the last letters of each words in 'Connie Elena Tami Stuart' and concatenate them.",
+      "output": [
+        "eait"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_379",
+      "input": "Take the last letters of each words in 'Courtney Ann John Fer' and concatenate them.",
+      "output": [
+        "ynnr"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_380",
+      "input": "Take the last letters of each words in 'Jazmine Carmen Kitty Nina' and concatenate them.",
+      "output": [
+        "enya"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_381",
+      "input": "Take the last letters of each words in 'Justin Neal Jt Lucia' and concatenate them.",
+      "output": [
+        "nlta"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_382",
+      "input": "Take the last letters of each words in 'Efrain Rickey Jonathan Kelli' and concatenate them.",
+      "output": [
+        "nyni"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_383",
+      "input": "Take the last letters of each words in 'Kathy Elsa Alba Ivette' and concatenate them.",
+      "output": [
+        "yaae"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_384",
+      "input": "Take the last letters of each words in 'Matilde Jan Marcel Mimi' and concatenate them.",
+      "output": [
+        "enli"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_385",
+      "input": "Take the last letters of each words in 'Mabel Estela Irene May' and concatenate them.",
+      "output": [
+        "laey"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_386",
+      "input": "Take the last letters of each words in 'Ron Carl Joann Young' and concatenate them.",
+      "output": [
+        "nlng"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_387",
+      "input": "Take the last letters of each words in 'Stevie Julie Leonard Karina' and concatenate them.",
+      "output": [
+        "eeda"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_388",
+      "input": "Take the last letters of each words in 'Blaine Syed Priya Ruby' and concatenate them.",
+      "output": [
+        "eday"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_389",
+      "input": "Take the last letters of each words in 'Ivy Romeo Jana Ej' and concatenate them.",
+      "output": [
+        "yoaj"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_390",
+      "input": "Take the last letters of each words in 'Latoya Eliseo Trina Melisa' and concatenate them.",
+      "output": [
+        "aoaa"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_391",
+      "input": "Take the last letters of each words in 'Meg Andrey Gerard Lilia' and concatenate them.",
+      "output": [
+        "gyda"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_392",
+      "input": "Take the last letters of each words in 'Quinton Sam Soledad Becca' and concatenate them.",
+      "output": [
+        "nmda"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_393",
+      "input": "Take the last letters of each words in 'Williams Reza Ashton Lillian' and concatenate them.",
+      "output": [
+        "sann"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_394",
+      "input": "Take the last letters of each words in 'Vicki Dwight Johnson Alexandra' and concatenate them.",
+      "output": [
+        "itna"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_395",
+      "input": "Take the last letters of each words in 'Diego Val Vincent Stacie' and concatenate them.",
+      "output": [
+        "olte"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_396",
+      "input": "Take the last letters of each words in 'Rubi Daisy Yadira Santa' and concatenate them.",
+      "output": [
+        "iyaa"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_397",
+      "input": "Take the last letters of each words in 'Nidia Rachelle Lauren Shelia' and concatenate them.",
+      "output": [
+        "aena"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_398",
+      "input": "Take the last letters of each words in 'Sonia Griffin Claude Josephine' and concatenate them.",
+      "output": [
+        "anee"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_399",
+      "input": "Take the last letters of each words in 'Emilia Jonas Christi Sophia' and concatenate them.",
+      "output": [
+        "asia"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_400",
+      "input": "Take the last letters of each words in 'Armando Astrid Anibal Dakota' and concatenate them.",
+      "output": [
+        "odla"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_401",
+      "input": "Take the last letters of each words in 'Marcos Kerri Fabio Stephen' and concatenate them.",
+      "output": [
+        "sion"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_402",
+      "input": "Take the last letters of each words in 'Glen Ariana Reggie Polo' and concatenate them.",
+      "output": [
+        "naeo"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_403",
+      "input": "Take the last letters of each words in 'Andre Oralia Carrie Bruno' and concatenate them.",
+      "output": [
+        "eaeo"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_404",
+      "input": "Take the last letters of each words in 'Debby Geoffrey Alana Silvestre' and concatenate them.",
+      "output": [
+        "yyae"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_405",
+      "input": "Take the last letters of each words in 'Nabil Marlene Wendy Jillian' and concatenate them.",
+      "output": [
+        "leyn"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_406",
+      "input": "Take the last letters of each words in 'Rahul Praveen Isaiah Elsie' and concatenate them.",
+      "output": [
+        "lnhe"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_407",
+      "input": "Take the last letters of each words in 'Alain Jerome Kristina Ida' and concatenate them.",
+      "output": [
+        "neaa"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_408",
+      "input": "Take the last letters of each words in 'Carla Dolores Cooper Damion' and concatenate them.",
+      "output": [
+        "asrn"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_409",
+      "input": "Take the last letters of each words in 'Jaime Brad Levi Emmanuel' and concatenate them.",
+      "output": [
+        "edil"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_410",
+      "input": "Take the last letters of each words in 'Fernanda Magda Elmer Alvaro' and concatenate them.",
+      "output": [
+        "aaro"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_411",
+      "input": "Take the last letters of each words in 'Thomas Cara Nita Frances' and concatenate them.",
+      "output": [
+        "saas"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_412",
+      "input": "Take the last letters of each words in 'Mauricio Lee Madi Lizzie' and concatenate them.",
+      "output": [
+        "oeie"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_413",
+      "input": "Take the last letters of each words in 'Pancho Claudio Elaine Vicky' and concatenate them.",
+      "output": [
+        "ooey"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_414",
+      "input": "Take the last letters of each words in 'Axel Osvaldo Mildred Sylvia' and concatenate them.",
+      "output": [
+        "loda"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_415",
+      "input": "Take the last letters of each words in 'Niki Graham Vernon Beau' and concatenate them.",
+      "output": [
+        "imnu"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_416",
+      "input": "Take the last letters of each words in 'Jermaine Pat Tammie Olivia' and concatenate them.",
+      "output": [
+        "etea"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_417",
+      "input": "Take the last letters of each words in 'Adrian Marlon Karla Florence' and concatenate them.",
+      "output": [
+        "nnae"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_418",
+      "input": "Take the last letters of each words in 'Chuy Shane Jaden Maynor' and concatenate them.",
+      "output": [
+        "yenr"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_419",
+      "input": "Take the last letters of each words in 'Jesse Roderick Travis Rita' and concatenate them.",
+      "output": [
+        "eksa"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_420",
+      "input": "Take the last letters of each words in 'Marty Justine Edgardo Osman' and concatenate them.",
+      "output": [
+        "yeon"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_421",
+      "input": "Take the last letters of each words in 'Dusty Yanet Hortencia Lili' and concatenate them.",
+      "output": [
+        "ytai"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_422",
+      "input": "Take the last letters of each words in 'Jesús Vidal Maxine Gloria' and concatenate them.",
+      "output": [
+        "slea"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_423",
+      "input": "Take the last letters of each words in 'Vinny Landon Miguel Caitlyn' and concatenate them.",
+      "output": [
+        "ynln"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_424",
+      "input": "Take the last letters of each words in 'Craig Dillon Troy Griselda' and concatenate them.",
+      "output": [
+        "gnya"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_425",
+      "input": "Take the last letters of each words in 'Héctor Daniela Rossy Jose Manuel' and concatenate them.",
+      "output": [
+        "rayl"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_426",
+      "input": "Take the last letters of each words in 'Nicky Eden James Matt' and concatenate them.",
+      "output": [
+        "ynst"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_427",
+      "input": "Take the last letters of each words in 'Kendall Matias Kaleb Randy' and concatenate them.",
+      "output": [
+        "lsby"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_428",
+      "input": "Take the last letters of each words in 'Jodi Judi Nia Raj' and concatenate them.",
+      "output": [
+        "iiaj"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_429",
+      "input": "Take the last letters of each words in 'Barbie Desiree Yaneth Dre' and concatenate them.",
+      "output": [
+        "eehe"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_430",
+      "input": "Take the last letters of each words in 'Memo Joey Phil Samuel' and concatenate them.",
+      "output": [
+        "oyll"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_431",
+      "input": "Take the last letters of each words in 'Markus Kathryn Giovanna Kent' and concatenate them.",
+      "output": [
+        "snat"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_432",
+      "input": "Take the last letters of each words in 'Rosa Lana Curtis Rae' and concatenate them.",
+      "output": [
+        "aase"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_433",
+      "input": "Take the last letters of each words in 'Marcus Ramirez Junior Arely' and concatenate them.",
+      "output": [
+        "szry"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_434",
+      "input": "Take the last letters of each words in 'Ulises Derek Adrianna Eugene' and concatenate them.",
+      "output": [
+        "skae"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_435",
+      "input": "Take the last letters of each words in 'Ace Rosy Kimberly Jean' and concatenate them.",
+      "output": [
+        "eyyn"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_436",
+      "input": "Take the last letters of each words in 'Jeannie Kenneth Porfirio Ezequiel' and concatenate them.",
+      "output": [
+        "ehol"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_437",
+      "input": "Take the last letters of each words in 'Faustino Lamar Fransisco Rina' and concatenate them.",
+      "output": [
+        "oroa"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_438",
+      "input": "Take the last letters of each words in 'Idalia Arnoldo Marla Duane' and concatenate them.",
+      "output": [
+        "aoae"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_439",
+      "input": "Take the last letters of each words in 'Mari Ximena Leo Antonia' and concatenate them.",
+      "output": [
+        "iaoa"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_440",
+      "input": "Take the last letters of each words in 'Manish Lu Karl Don' and concatenate them.",
+      "output": [
+        "huln"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_441",
+      "input": "Take the last letters of each words in 'Ira Paola Jose Antonio Maria' and concatenate them.",
+      "output": [
+        "aaoa"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_442",
+      "input": "Take the last letters of each words in 'Karen Hector Mai Steven' and concatenate them.",
+      "output": [
+        "nrin"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_443",
+      "input": "Take the last letters of each words in 'Andres Mary Ann Sydney Dina' and concatenate them.",
+      "output": [
+        "snya"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_444",
+      "input": "Take the last letters of each words in 'Emma Maryann Olga Nataly' and concatenate them.",
+      "output": [
+        "anay"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_445",
+      "input": "Take the last letters of each words in 'Ale Gaspar Sonny Simon' and concatenate them.",
+      "output": [
+        "eryn"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_446",
+      "input": "Take the last letters of each words in 'Cruz Wilber Marilu Malik' and concatenate them.",
+      "output": [
+        "zruk"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_447",
+      "input": "Take the last letters of each words in 'Colton Dexter Katy Brayden' and concatenate them.",
+      "output": [
+        "nryn"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_448",
+      "input": "Take the last letters of each words in 'Raven Marisela Ross Angie' and concatenate them.",
+      "output": [
+        "nase"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_449",
+      "input": "Take the last letters of each words in 'Rena Devon Rosalinda Paulina' and concatenate them.",
+      "output": [
+        "anaa"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_450",
+      "input": "Take the last letters of each words in 'Davis Jules Fabiola Cherie' and concatenate them.",
+      "output": [
+        "ssae"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_451",
+      "input": "Take the last letters of each words in 'Kyra Luciano Ciara Bryan' and concatenate them.",
+      "output": [
+        "aoan"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_452",
+      "input": "Take the last letters of each words in 'Skyler Oliver Cristy Sierra' and concatenate them.",
+      "output": [
+        "rrya"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_453",
+      "input": "Take the last letters of each words in 'Leandro Maricela Genevieve Lesly' and concatenate them.",
+      "output": [
+        "oaey"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_454",
+      "input": "Take the last letters of each words in 'Elise Lupe Renee Noemi' and concatenate them.",
+      "output": [
+        "eeei"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_455",
+      "input": "Take the last letters of each words in 'Ever Gio Elia Ramesh' and concatenate them.",
+      "output": [
+        "roah"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_456",
+      "input": "Take the last letters of each words in 'Ronnie Kiki Alan Remy' and concatenate them.",
+      "output": [
+        "einy"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_457",
+      "input": "Take the last letters of each words in 'Celso Tracy Winston Anton' and concatenate them.",
+      "output": [
+        "oynn"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_458",
+      "input": "Take the last letters of each words in 'Whitney Erika Tj Benito' and concatenate them.",
+      "output": [
+        "yajo"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_459",
+      "input": "Take the last letters of each words in 'Gus Brock Ava Jenna' and concatenate them.",
+      "output": [
+        "skaa"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_460",
+      "input": "Take the last letters of each words in 'Alfonso Collin Amado Dick' and concatenate them.",
+      "output": [
+        "onok"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_461",
+      "input": "Take the last letters of each words in 'Lewis Azucena Kai Ravi' and concatenate them.",
+      "output": [
+        "saii"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_462",
+      "input": "Take the last letters of each words in 'Bret Lois Ismael Mirna' and concatenate them.",
+      "output": [
+        "tsla"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_463",
+      "input": "Take the last letters of each words in 'Nicolas Aaliyah Pascual Rob' and concatenate them.",
+      "output": [
+        "shlb"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_464",
+      "input": "Take the last letters of each words in 'Nichole Heriberto Darian Peter' and concatenate them.",
+      "output": [
+        "eonr"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_465",
+      "input": "Take the last letters of each words in 'Estrella Madison Paco Rj' and concatenate them.",
+      "output": [
+        "anoj"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_466",
+      "input": "Take the last letters of each words in 'Nick Ada Stephany Suzie' and concatenate them.",
+      "output": [
+        "kaye"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_467",
+      "input": "Take the last letters of each words in 'Steph Pablo Ceci Francine' and concatenate them.",
+      "output": [
+        "hoie"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_468",
+      "input": "Take the last letters of each words in 'Shari Bella Liza Maira' and concatenate them.",
+      "output": [
+        "iaaa"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_469",
+      "input": "Take the last letters of each words in 'Shawn Tracie Lynne Leila' and concatenate them.",
+      "output": [
+        "neea"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_470",
+      "input": "Take the last letters of each words in 'Sally Sadie Christie Ellie' and concatenate them.",
+      "output": [
+        "yeee"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_471",
+      "input": "Take the last letters of each words in 'Ernest Yuri Camila Ashlee' and concatenate them.",
+      "output": [
+        "tiae"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_472",
+      "input": "Take the last letters of each words in 'Charles Emilio Vivek Steve' and concatenate them.",
+      "output": [
+        "soke"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_473",
+      "input": "Take the last letters of each words in 'Lucky Mireya Jj Kc' and concatenate them.",
+      "output": [
+        "yajc"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_474",
+      "input": "Take the last letters of each words in 'Oswaldo José Luis Sheldon Tara' and concatenate them.",
+      "output": [
+        "osna"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_475",
+      "input": "Take the last letters of each words in 'Carole William Tiffany Hilary' and concatenate them.",
+      "output": [
+        "emyy"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_476",
+      "input": "Take the last letters of each words in 'Efren Rex Marilyn Emerson' and concatenate them.",
+      "output": [
+        "nxnn"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_477",
+      "input": "Take the last letters of each words in 'Sal Scott Myrna Maximo' and concatenate them.",
+      "output": [
+        "ltao"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_478",
+      "input": "Take the last letters of each words in 'Rich Parker Edward Milagros' and concatenate them.",
+      "output": [
+        "hrds"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_479",
+      "input": "Take the last letters of each words in 'Beatrice Taylor Juan Carlos Kaitlin' and concatenate them.",
+      "output": [
+        "ersn"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_480",
+      "input": "Take the last letters of each words in 'Wilma Margie Amber Sergio' and concatenate them.",
+      "output": [
+        "aero"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_481",
+      "input": "Take the last letters of each words in 'Sean Rebeca Marco Sami' and concatenate them.",
+      "output": [
+        "naoi"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_482",
+      "input": "Take the last letters of each words in 'Amanda Geoff Belinda Gaurav' and concatenate them.",
+      "output": [
+        "afav"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_483",
+      "input": "Take the last letters of each words in 'Marian Joanne Darrin Rohit' and concatenate them.",
+      "output": [
+        "nent"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_484",
+      "input": "Take the last letters of each words in 'Lilian Ian Bryce Aracely' and concatenate them.",
+      "output": [
+        "nney"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_485",
+      "input": "Take the last letters of each words in 'Rashad Savannah Flavio Bert' and concatenate them.",
+      "output": [
+        "dhot"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_486",
+      "input": "Take the last letters of each words in 'Altagracia Howard Patti Douglas' and concatenate them.",
+      "output": [
+        "adis"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_487",
+      "input": "Take the last letters of each words in 'Selene Felix Milton Yessica' and concatenate them.",
+      "output": [
+        "exna"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_488",
+      "input": "Take the last letters of each words in 'Garrett Eva Joaquin Monique' and concatenate them.",
+      "output": [
+        "tane"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_489",
+      "input": "Take the last letters of each words in 'Blanca Monika Ervin Lori' and concatenate them.",
+      "output": [
+        "aani"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_490",
+      "input": "Take the last letters of each words in 'Gabi Dante Rafa Tricia' and concatenate them.",
+      "output": [
+        "ieaa"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_491",
+      "input": "Take the last letters of each words in 'Suzanne Julissa Chino America' and concatenate them.",
+      "output": [
+        "eaoa"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_492",
+      "input": "Take the last letters of each words in 'Lino Mariel Aditya Elisabeth' and concatenate them.",
+      "output": [
+        "olah"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_493",
+      "input": "Take the last letters of each words in 'Abel Mallory Theresa Quinn' and concatenate them.",
+      "output": [
+        "lyan"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_494",
+      "input": "Take the last letters of each words in 'Tim Candace Cecil Misael' and concatenate them.",
+      "output": [
+        "mell"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_495",
+      "input": "Take the last letters of each words in 'Yasmin Yesenia Carmela Susie' and concatenate them.",
+      "output": [
+        "naae"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_496",
+      "input": "Take the last letters of each words in 'Stella Janis Darren Lena' and concatenate them.",
+      "output": [
+        "asna"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_497",
+      "input": "Take the last letters of each words in 'Russ Berta Mandy Lydia' and concatenate them.",
+      "output": [
+        "saya"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_498",
+      "input": "Take the last letters of each words in 'Imelda Andi Mack Rigoberto' and concatenate them.",
+      "output": [
+        "aiko"
+      ]
+    },
+    {
+      "id": "task1802_last_letter_499",
+      "input": "Take the last letters of each words in 'Domingo Briana Michael Joan' and concatenate them.",
+      "output": [
+        "oaln"
+      ]
+    }
+  ]
+}

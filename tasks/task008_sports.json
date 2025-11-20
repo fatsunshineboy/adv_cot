@@ -1,0 +1,7050 @@
+{
+  "Instruction_Generator": "Let's think step by step and give the reasoning process. The answer should be either 'yes' or 'no'. End the output with 'the answer is yes' or 'the answer is no'",
+  "Examples_Generator": [
+    {
+      "input": "Is the following sentence plausible? ’Fernando Tatis Jr. walked on ball four.’",
+      "output": "A walk is when the batter reaches first base without hitting the ball. Reaching first base can happen a few ways, but one of them is by the pitcher throwing four balls. So the answer is yes."
+    },
+    {
+      "input": "Is the following sentence plausible? ’Jayson Tatum was caught offsides in the Champions Leage Semifinal.’",
+      "output": "Being caught offsides is part of soccer, yet, Jayson Tatum is a basketball player. So the answer is no."
+    },
+    {
+      "input": "Is the following sentence plausible? ’Marouane Fellaini scored in extra time.’",
+      "output": "Marouane Fellaini is a professional soccer player who has played in matches that include extra time. Scoring in extra time is a common event in soccer. So the answer is yes."
+    },
+    {
+      "input": "Is the following sentence plausible? ’Gerrit Cole commit ted a handball in the European Cup.’",
+      "output": "Committing a handball is part of soccer, yet, Gerrit Cole is a soccer player. So the answer is no."
+    },
+    {
+      "input": "Is the following sentence plausible? ’Klaas Jan Huntelaar scored the easy layup.’",
+      "output": "Scoring a layup is part of basketball, yet, Klaas Jan Huntelaar is a soccer player. So the answer is no."
+    }
+  ],
+  "Instruction_Discriminator": "Judge the answer is correct ground truth or generated fake answer and give the reasoning process. You should make a choice from the following two answers. (A) correct ground truth (B)generated fake answer.",
+  "Examples_Discriminator": [
+    {
+      "input": "Input: Is the following sentence plausible? ’Fernando Tatis Jr. walked on ball four.’ Output: A walk is when the batter reaches first base without hitting the ball. Reaching first base can happen a few ways, but one of them is by the pitcher throwing four balls. So the answer is yes.",
+      "output": "(A) correct ground truth. Reasoning: In baseball, a batter receives a 'walk' (base on balls) when the pitcher throws four balls outside the strike zone. This allows the batter to go to first base without hitting the ball. The explanation accurately describes this rule, and the sentence involving Fernando Tatis Jr. is entirely plausible. Therefore, the answer is correct."
+    },
+    {
+      "input": "Input: Is the following sentence plausible? ’Jayson Tatum was caught offsides in the Champions Leage Semifinal.’ Output: Being caught offsides is part of soccer, yet, Jayson Tatum is a basketball player. So the answer is no.",
+      "output": "(A) correct ground truth. Reasoning: The concept of being 'caught offsides' applies to soccer, and the Champions League is a soccer competition. However, Jayson Tatum is a professional basketball player with no known involvement in professional soccer. Therefore, the sentence is implausible, and the reasoning and conclusion 'no' are both correct."
+    },
+    {
+      "input": "Input: Is the following sentence plausible? ’Marouane Fellaini scored in extra time.’ Output: Marouane Fellaini is a professional soccer player who has played in matches that include extra time. Scoring in extra time is a common event in soccer. So the answer is yes.",
+      "output": "(A) correct ground truth. Reasoning: Marouane Fellaini is a known professional soccer player who has participated in competitive matches, including those that go into extra time. It is entirely plausible that he could have scored during extra time, which is a routine part of the sport. The explanation is sound, and the conclusion 'yes' is justified."
+    },
+    {
+      "input": "Input: Is the following sentence plausible? ’Gerrit Cole commit ted a handball in the European Cup.’ Output: Committing a handball is part of soccer, yet, Gerrit Cole is a soccer player. So the answer is no.",
+      "output": "(B) generated fake answer. Reasoning: The output states that Gerrit Cole is a soccer player, but this is factually incorrect. Gerrit Cole is a professional baseball pitcher, not a soccer player. Therefore, while it correctly concludes that the sentence is implausible, the reasoning contains a factual error, making the answer a generated fake answer."
+    },
+    {
+      "input": "Input: Is the following sentence plausible? ’Klaas Jan Huntelaar scored the easy layup.’ Output: Scoring a layup is part of basketball, yet, Klaas Jan Huntelaar is a soccer player. So the answer is no.",
+      "output": "(A) correct ground truth. Reasoning: A 'layup' is a basketball move, while Klaas Jan Huntelaar is a professional soccer player. Since the action described does not match the athlete’s sport, the sentence is implausible. The reasoning correctly identifies this mismatch, so the answer 'no' is valid."
+    }
+  ],
+  "Instances": [
+    {
+      "id": "task1805_sports_0",
+      "input": "Jamal Murray was perfect from the line",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_1",
+      "input": "Jonas Valanciunas beat the buzzer",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_2",
+      "input": "Malcolm Brogdon banked the shot in",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_3",
+      "input": "Joao Moutinho caught the screen pass in the NFC championship",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_4",
+      "input": "Sam Darnold passed the puck",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_5",
+      "input": "Carson Wentz set the pick and roll",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_6",
+      "input": "Kyle Palmieri was called for slashing",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_7",
+      "input": "Liam Hendricks hit a double in the World Series",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_8",
+      "input": "Draymond Green threw a touchdown",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_9",
+      "input": "Sonny Gray was out at second",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_10",
+      "input": "Luke Voit was out at first",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_11",
+      "input": "Wayne Rooney shot from outside the eighteen",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_12",
+      "input": "Samir Nasri did a double stepover in the World Cup",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_13",
+      "input": "Jorge Soler entered the attacking zone",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_14",
+      "input": "Juan Soto shot from beyond the arc",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_15",
+      "input": "Fernando Tatis Jr. walked on ball four",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_16",
+      "input": "Mike Williams got into the endzone",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_17",
+      "input": "Juan Mata caught the screen pass",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_18",
+      "input": "Alex Pietrangelo was called for slashing in the Stanley Cup",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_19",
+      "input": "Gareth Bale launched the half court shot",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_20",
+      "input": "Joao Moutinho was out at third",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_21",
+      "input": "Bryce Harper hit the back shoulder fade",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_22",
+      "input": "Freddie Freeman scored a bicycle kick",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_23",
+      "input": "Malcolm Brogdon eurostepped to the basket in the NBA Championship",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_24",
+      "input": "Derrick White backhanded a shot",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_25",
+      "input": "Tuukka Rask crossed the blue line",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_26",
+      "input": "Nazem Kadri was out at home",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_27",
+      "input": "Jacob Markstrom backhanded a shot",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_28",
+      "input": "Tristan Jarry dunked the ball",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_29",
+      "input": "Clayton Kershaw launched a hail mary",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_30",
+      "input": "Jose Ramirez hit into a double play in the National League Championship Series",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_31",
+      "input": "Elias Lindholm took the snap",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_32",
+      "input": "Baker Mayfield committed a blocking foul in the NBA Championship",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_33",
+      "input": "Robin Lehner launched a hail mary",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_34",
+      "input": "Paulinho earned an indirect kick in the FA Cup",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_35",
+      "input": "Norman Powell committed a blocking foul",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_36",
+      "input": "Jayson Tatum was caught offsides in the Champions Leage Semifinal",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_37",
+      "input": "Darcy Kuemper scored on the power play",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_38",
+      "input": "Jarrett Allen got on base",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_39",
+      "input": "Leon Draisaitl shot the puck",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_40",
+      "input": "Paul Goldschmidt walked on ball four",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_41",
+      "input": "Luis Suarez performed a give and go",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_42",
+      "input": "Kyle Anderson skated backwards",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_43",
+      "input": "Keenan Allen drew a flag on the play in the NFC championship",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_44",
+      "input": "Mapou Yanga-M'Biwa did a double stepover",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_45",
+      "input": "Juan Soto flew out to center",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_46",
+      "input": "Santi Cazorla scored a touchdown",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_47",
+      "input": "Trevor Bauer stepped on first base",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_48",
+      "input": "Michael Porter Jr. called for the screen",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_49",
+      "input": "Radamel Falcao earned an indirect kick",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_50",
+      "input": "Christian Yelich headed back to the dugout",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_51",
+      "input": "Calvin Ridley ran out of bounds in the NFC divisional round",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_52",
+      "input": "Patrice Bergeron took a backhand shot",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_53",
+      "input": "Javi Martinez comitted a three second violation",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_54",
+      "input": "Caris LeVert scored a reverse layup",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_55",
+      "input": "Neymar did a maradona on the defender in the Champions Leage Semifinal",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_56",
+      "input": "Marouane Fellaini scored a freekick",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_57",
+      "input": "Jaylen Brown hit the buzzer beater in the NBA Championship",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_58",
+      "input": "Nelson Cruz earned a red card",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_59",
+      "input": "Carles Puyol earned a direct kick",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_60",
+      "input": "Jamison Crowder shot from beyond the arc",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_61",
+      "input": "Elias Pettersson was caught in a rundown",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_62",
+      "input": "Nathan MacKinnon bricked the three pointer in the Eastern Conference Finals",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_63",
+      "input": "Tyler Boyd airballed the shot",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_64",
+      "input": "Tom Wilson hit the back shoulder fade",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_65",
+      "input": "Freddie Freeman worked a full count",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_66",
+      "input": "Kailer Yamamoto crossed the blue line",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_67",
+      "input": "Deshaun Watson was called for icing",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_68",
+      "input": "Keenan Allen threw a touchdown",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_69",
+      "input": "Diego Forlan hit the back shoulder fade in the Superbowl",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_70",
+      "input": "Brendan Gallagher spent time in the penalty box in the Stanley Cup",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_71",
+      "input": "Trae Young committed a blocking foul in the NBA Championship",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_72",
+      "input": "Walker Buehler earned a trip to the penalty box",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_73",
+      "input": "Deshaun Watson was called for the goal tend in the Eastern Conference Finals",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_74",
+      "input": "DK Metcalf hit the wheel route",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_75",
+      "input": "Anders Lee drove into the restricted area",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_76",
+      "input": "Carlos Tevez fumbled the ball",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_77",
+      "input": "Thomas Muller got on the end of a through ball in the World Cup",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_78",
+      "input": "Vincent Kompany committed a handball",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_79",
+      "input": "Luka Doncic  committed a three second violation",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_80",
+      "input": "Didier Drogba got into the endzone",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_81",
+      "input": "Cale Makar hit into a double play",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_82",
+      "input": "Manny Machado hit into a double play",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_83",
+      "input": "Golden Tate converted the first down",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_84",
+      "input": "Dani Alves took the snap",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_85",
+      "input": "Anthony Rizzo skated backwards in the Stanley Cup",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_86",
+      "input": "James Harden shot from outside the eighteen",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_87",
+      "input": "Shai Gilgeous-Alexander beat the buzzer",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_88",
+      "input": "Shai Gilgeous-Alexander comitted a three second violation",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_89",
+      "input": "Neymar went for it on fourth down",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_90",
+      "input": "Derek Carr performed a give and go",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_91",
+      "input": "DK Metcalf got into the endzone",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_92",
+      "input": "Patrice Bergeron took to the ice",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_93",
+      "input": "Cam Newton killed the powerplay",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_94",
+      "input": "Arjen Robben crossed the blue line in the Stanley Cup",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_95",
+      "input": "Javi Martinez nutmegged the defender",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_96",
+      "input": "Kyle Anderson shot with the left foot",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_97",
+      "input": "Carles Puyol banked the shot in",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_98",
+      "input": "Malcolm Brogdon drove into the restricted area in the Eastern Conference Finals",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_99",
+      "input": "Jaren Jackson Jr. eurostepped to the basket in the NBA Championship",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_100",
+      "input": "Elias Lindholm beat the buzzer",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_101",
+      "input": "Norman Powell took a turnaround jumper",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_102",
+      "input": "Logan Couture went for it on fourth down",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_103",
+      "input": "Chris Godwin was caught in a rundown in the American League Championship Series",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_104",
+      "input": "Philipp Lahm did a maradona on the defender",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_105",
+      "input": "Mitchell Marner wristed a shot",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_106",
+      "input": "Jack Flaherty pitched a shutout in the National League Championship Series",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_107",
+      "input": "Victor Wanyama took a backhand shot",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_108",
+      "input": "Taylor Hall converted the double play",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_109",
+      "input": "Sergio Ramos hit nothing but net",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_110",
+      "input": "Will Fuller was perfect from the line",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_111",
+      "input": "Joe Burrow gained five yards",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_112",
+      "input": "Franck Ribery performed a slide tackle",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_113",
+      "input": "Kyle Tucker took a left footed shot",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_114",
+      "input": "Jamal Murray went one for two from the line in the Eastern Conference Finals",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_115",
+      "input": "Patrice Evra scored in the shootout",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_116",
+      "input": "Klaas Jan Huntelaar caught the back shoulder fade",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_117",
+      "input": "Matt Ryan scored a penalty kick",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_118",
+      "input": "Marek Hamsik skated behind the net",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_119",
+      "input": "Deandre Ayton shot from beyond the arc",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_120",
+      "input": "Jerami Grant did a double stepover",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_121",
+      "input": "Luke Voit hit a single",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_122",
+      "input": "Brent Burns drove into the paint",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_123",
+      "input": "Dejounte Murray hit the back of the rim",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_124",
+      "input": "Matthew Stafford hit the back of the rim",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_125",
+      "input": "Sam Darnold launched a hail mary in the NFC championship",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_126",
+      "input": "Trevor Story hit the wheel route in the AFC divisional round",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_127",
+      "input": "Mookie Betts scored on the power play",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_128",
+      "input": "Evgeni Malkin took a three",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_129",
+      "input": "Henrikh Mkhitaryan converted the first down",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_130",
+      "input": "Luka Modric went in studs up in the FA Cup",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_131",
+      "input": "Sam Darnold struck out",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_132",
+      "input": "Mark Stone earned an indirect kick in the FA Cup",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_133",
+      "input": "Darius Slayton ran out of bounds in the AFC championship",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_134",
+      "input": "Walker Buehler was out at third",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_135",
+      "input": "Miro Heiskanen was called for slashing",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_136",
+      "input": "T.Y. Hilton threw a touchdown in the AFC divisional round",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_137",
+      "input": "Tobias Harris fumbled the ball in the NFC divisional round",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_138",
+      "input": "Trent Grisham struck out in the National League Championship Series",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_139",
+      "input": "Malik Beasley  comitted a three second violation",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_140",
+      "input": "Jamison Crowder drew a flag on the play",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_141",
+      "input": "Arjen Robben earned a direct kick",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_142",
+      "input": "Keenan Allen launched a hail mary",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_143",
+      "input": "Mark Stone took to the ice",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_144",
+      "input": "Charlie Blackmon pitched a complete game",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_145",
+      "input": "Darijo Srna eurostepped to the basket",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_146",
+      "input": "Jake Guentzel committed a three second violation",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_147",
+      "input": "Jacob deGrom took a corner kick",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_148",
+      "input": "Corbin Burnes earned an indirect kick",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_149",
+      "input": "Josh Allen hit the screen pass",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_150",
+      "input": "John Tavares skated behind the net",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_151",
+      "input": "Mookie Betts skated behind the net",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_152",
+      "input": "Malcolm Brogdon took a turnaround jumper in the NBA Championship",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_153",
+      "input": "Nikola Vucevic lost control of the puck",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_154",
+      "input": "Yoan Moncada flew out to center",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_155",
+      "input": "Seth Jones earned a trip to the penalty box",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_156",
+      "input": "Mike Trout hit a walkoff homer",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_157",
+      "input": "Sterling Shepard converted the first down",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_158",
+      "input": "Eden Hazard got a base hit",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_159",
+      "input": "Domantas Sabonis went for it on fourth down in the NFC divisional round",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_160",
+      "input": "Logan Couture walked on ball four",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_161",
+      "input": "Brandin Cooks backhanded a shot",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_162",
+      "input": "Deandre Ayton set the hard screen in the NBA Championship",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_163",
+      "input": "Rhys Hoskins scored a bicycle kick",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_164",
+      "input": "Zach LaVine  shot the puck",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_165",
+      "input": "Jamal Murray walked on ball four",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_166",
+      "input": "Gerard Pique gained five yards in the NFC championship",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_167",
+      "input": "Deshaun Watson was flagged on the play",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_168",
+      "input": "Charlie Blackmon shot a free throw",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_169",
+      "input": "DK Metcalf took a backhand shot",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_170",
+      "input": "Gerard Pique scored a corner kick",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_171",
+      "input": "Jamal Murray went five hole",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_172",
+      "input": "Evander Kane hit the slant pass in the AFC divisional round",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_173",
+      "input": "Zach LaVine  hit a double",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_174",
+      "input": "Max Pacioretty spent time in the penalty box",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_175",
+      "input": "John Carlson fumbled the ball",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_176",
+      "input": "Mitchell Trubisky changed direction in the backfield",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_177",
+      "input": "Matthew Tkachuk struck out",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_178",
+      "input": "Jordi Alba walked to first base",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_179",
+      "input": "Patrice Evra performed a give and go",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_180",
+      "input": "A.J. Green converted the double play",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_181",
+      "input": "Sonny Gray committed a blocking foul",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_182",
+      "input": "Radamel Falcao airballed the shot in the Eastern Conference Finals",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_183",
+      "input": "Gleyber Torres walked to first base in the National League Championship Series",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_184",
+      "input": "Luis Suarez got on the end of a through ball",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_185",
+      "input": "Diontae Johnson went for it on fourth down",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_186",
+      "input": "Joey Gallo nutmegged the defender",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_187",
+      "input": "Zach LaVine  committed a three second violation",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_188",
+      "input": "Mark Stone hit a triple",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_189",
+      "input": "Trae Young got into the endzone",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_190",
+      "input": "Andrew Wiggins airballed the shot",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_191",
+      "input": "Mika Zibanejad went for it on fourth down",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_192",
+      "input": "Shai Gilgeous-Alexander hit nothing but net",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_193",
+      "input": "Kyle Lowry was called for slashing",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_194",
+      "input": "Mike Evans was out at second in the World Series",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_195",
+      "input": "Gordon Hayward launched the desperation heave",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_196",
+      "input": "DeVante Parker was called for icing",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_197",
+      "input": "Giancarlo Stanton launched a triple",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_198",
+      "input": "Nemanja Vidic was safe at home",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_199",
+      "input": "Daniel Jones took a left footed shot",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_200",
+      "input": "J.T. Miller was called for slashing",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_201",
+      "input": "Paul Goldschmidt banked the shot in",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_202",
+      "input": "Sterling Shepard hit the back of the rim",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_203",
+      "input": "Eugenio Suarez pitched a complete game",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_204",
+      "input": "Eden Hazard airballed the shot",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_205",
+      "input": "Jamal Murray walked on ball four",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_206",
+      "input": "John Terry shot from the six yard line",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_207",
+      "input": "Javier Zanetti scored on the power play",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_208",
+      "input": "Toni Kroos performed a give and go",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_209",
+      "input": "Freddie Freeman watched the pitch go by",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_210",
+      "input": "Luka Modric took a left footed shot",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_211",
+      "input": "Max Scherzer scored in extra time in the World Cup",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_212",
+      "input": "Mikko Rantanen entered the attacking zone",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_213",
+      "input": "Philip Rivers hit a triple",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_214",
+      "input": "James Karinchak worked a full count",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_215",
+      "input": "Mathew Barzal backhanded a shot",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_216",
+      "input": "John Terry scored in added time",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_217",
+      "input": "Klaas Jan Huntelaar shot with the left foot",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_218",
+      "input": "Mika Zibanejad performed a give and go in the FA Cup",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_219",
+      "input": "Jesus Luzardo was called for slashing",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_220",
+      "input": "Santi Cazorla earned a red card in the Champions League Final",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_221",
+      "input": "Mitchell Trubisky caught the screen pass",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_222",
+      "input": "Mapou Yanga-M'Biwa hit the slant pass",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_223",
+      "input": "Zack Greinke pitched a complete game",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_224",
+      "input": "Didier Drogba hit nothing but net",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_225",
+      "input": "William Nylander skated behind the net",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_226",
+      "input": "Malcolm Brogdon took a charge",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_227",
+      "input": "Nicklas Backstrom earned a trip to the penalty box",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_228",
+      "input": "Ryan O'Reilly drove into the paint",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_229",
+      "input": "Jaylen Brown comitted a three second violation",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_230",
+      "input": "Mitchell Trubisky set the pick and roll",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_231",
+      "input": "Kwadwo Asamoah beat the shot clock in the Eastern Conference Finals",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_232",
+      "input": "Andres Iniesta was called for icing in the Stanley Cup",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_233",
+      "input": "Neymar took a throw in in the Champions League Final",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_234",
+      "input": "DJ Chark caught the back shoulder fade in the NFC divisional round",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_235",
+      "input": "DJ Moore earned a direct kick",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_236",
+      "input": "Pierre-Emerick Aubameyang committed a handball",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_237",
+      "input": "Mecole Hardman swung to protect the runner in the American League Championship Series",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_238",
+      "input": "Ryan Tannehill hit a triple",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_239",
+      "input": "Josh Allen caught the screen pass",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_240",
+      "input": "John Tavares went five hole",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_241",
+      "input": "Samir Nasri performed a cruyff turn",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_242",
+      "input": "Carles Puyol did a maradona on the defender",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_243",
+      "input": "Henrikh Mkhitaryan hit into a double play",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_244",
+      "input": "Mitchell Marner was out at second",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_245",
+      "input": "Khris Middleton went one for two from the line in the NBA Championship",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_246",
+      "input": "John Carlson scored in the third period",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_247",
+      "input": "Philipp Lahm threw a touchdown",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_248",
+      "input": "Jordi Alba scored a reverse layup in the Western Conference Finals",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_249",
+      "input": "Carlos Tevez was flagged on the play",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_250",
+      "input": "Juan Soto took ball four",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_251",
+      "input": "Patrick Kane backhanded a shot in the Stanley Cup",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_252",
+      "input": "Mikal Bridges got into the endzone",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_253",
+      "input": "Allen Robinson gained five yards",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_254",
+      "input": "Golden Tate set the pick and roll",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_255",
+      "input": "Miro Heiskanen earned a trip to the penalty box",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_256",
+      "input": "Eugenio Suarez hit a walkoff homer in the National League Championship Series",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_257",
+      "input": "Jakub Vrana hit a walkoff homer",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_258",
+      "input": "Jimmy Butler eurostepped to the basket",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_259",
+      "input": "Pascal Siakam drove into the paint in the Western Conference Finals",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_260",
+      "input": "Mitchell Robinson airballed the shot",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_261",
+      "input": "Mike Hoffman launched the half court shot in the Western Conference Finals",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_262",
+      "input": "Alex Bregman flew out to center",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_263",
+      "input": "Marcell Ozuna shot from the six yard line",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_264",
+      "input": "J.T. Miller threw to first base",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_265",
+      "input": "Eden Hazard walked to first base",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_266",
+      "input": "Diego Forlan did a maradona on the defender",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_267",
+      "input": "Donovan Mitchell fumbled the ball in the AFC championship",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_268",
+      "input": "Ryan Fitzpatrick threw a touchdown",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_269",
+      "input": "Mario Gomez performed a slide tackle",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_270",
+      "input": "Dejounte Murray took a left footed shot",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_271",
+      "input": "Pedro struck out the side",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_272",
+      "input": "Juan Soto scored in the shootout",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_273",
+      "input": "DeMar DeRozan was perfect from the line",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_274",
+      "input": "De'Aaron Fox airballed the shot",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_275",
+      "input": "Brad Hand hit the wheel route",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_276",
+      "input": "Andres Iniesta performed a give and go",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_277",
+      "input": "Eden Hazard hit the buzzer beater",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_278",
+      "input": "Joey Gallo fumbled the ball",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_279",
+      "input": "Kyle Tucker pitched a shutout",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_280",
+      "input": "Terry McLaurin committed a blocking foul in the Eastern Conference Finals",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_281",
+      "input": "Tyler Glasnow scored a penalty kick",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_282",
+      "input": "Mark Scheifele skated backwards",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_283",
+      "input": "Ryan O'Reilly wristed a shot",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_284",
+      "input": "Angel Di Maria scored in extra time",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_285",
+      "input": "Tom Brady was safe at first",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_286",
+      "input": "Keenan Allen beat the buzzer in the Western Conference Finals",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_287",
+      "input": "Andrei Svechnikov got on the end of a through ball",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_288",
+      "input": "Will Fuller earned an indirect kick",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_289",
+      "input": "Dejounte Murray took a side-step three",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_290",
+      "input": "Baker Mayfield hit nothing but net",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_291",
+      "input": "Tim Anderson went in studs up in the European Cup",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_292",
+      "input": "Trae Young set the hard screen in the Eastern Conference Finals",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_293",
+      "input": "Adam Thielen performed a slide tackle",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_294",
+      "input": "Travis Konecny did a maradona on the defender",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_295",
+      "input": "Iker Casillas got into the endzone in the AFC divisional round",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_296",
+      "input": "Max Scherzer converted the first down",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_297",
+      "input": "Cale Makar earned a trip to the penalty box",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_298",
+      "input": "Darius Slayton gained five yards",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_299",
+      "input": "Klaas Jan Huntelaar dunked the ball",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_300",
+      "input": "Kyle Connor eurostepped to the basket in the Western Conference Finals",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_301",
+      "input": "Mikal Bridges backhanded a shot",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_302",
+      "input": "Luis Robert was out at second",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_303",
+      "input": "Brent Burns went one for two from the line",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_304",
+      "input": "Toni Kroos took a throw in in the Champions Leage Semifinal",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_305",
+      "input": "Javier Mascherano wristed a shot",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_306",
+      "input": "Chris Boucher committed a three second violation",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_307",
+      "input": "Ryan Nugent-Hopkins spent time in the penalty box",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_308",
+      "input": "Michael Thomas hit a double",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_309",
+      "input": "Chris Boucher was called for the goal tend",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_310",
+      "input": "Evgeni Malkin passed the puck",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_311",
+      "input": "Evgeni Malkin hit a single",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_312",
+      "input": "Kwadwo Asamoah was flagged on the play",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_313",
+      "input": "Mikal Bridges scored a windmill dunk",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_314",
+      "input": "Karim Benzema pitched a complete game",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_315",
+      "input": "Juan Soto took a long two",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_316",
+      "input": "Kyle Tucker stepped on first base",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_317",
+      "input": "Keenan Allen went for it on fourth down",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_318",
+      "input": "Tyrese Haliburton airballed the shot",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_319",
+      "input": "Jimmy Garoppolo caught the back shoulder fade",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_320",
+      "input": "Daniel Jones hit the wheel route",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_321",
+      "input": "Corbin Burnes scored in the shootout",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_322",
+      "input": "Wayne Rooney beat the buzzer",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_323",
+      "input": "Marouane Fellaini scored in extra time",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_324",
+      "input": "Tyler Glasnow watched the pitch go by",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_325",
+      "input": "Gerrit Cole committed a handball in the European Cup",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_326",
+      "input": "Neal Pionk took the snap",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_327",
+      "input": "Mike Williams fumbled the ball in the Superbowl",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_328",
+      "input": "Jarrett Allen fumbled the ball",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_329",
+      "input": "Timo Meier nutmegged the defender in the FA Cup",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_330",
+      "input": "Franmil Reyes scored a reverse layup",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_331",
+      "input": "Daniel Jones hit the back shoulder fade in the NFC championship",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_332",
+      "input": "Chris Godwin earned an indirect kick",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_333",
+      "input": "Bastian Schweinsteiger scored in added time",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_334",
+      "input": "Jonathan Marchessault scored on the power play in the Stanley Cup",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_335",
+      "input": "Patrik Laine skated backwards",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_336",
+      "input": "Jimmy Garoppolo fumbled the ball",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_337",
+      "input": "Daniel Jones fumbled the ball",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_338",
+      "input": "Javier Pastore went five hole",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_339",
+      "input": "Ryan Fitzpatrick scored a touchdown",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_340",
+      "input": "Amari Cooper scored a penalty kick",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_341",
+      "input": "Ben Simmons set the hard screen in the Western Conference Finals",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_342",
+      "input": "Blake Snell hit a single",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_343",
+      "input": "Eden Hazard took a corner kick",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_344",
+      "input": "Eden Hazard performed a cruyff turn",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_345",
+      "input": "Brady Tkachuk scored a header goal",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_346",
+      "input": "John Carlson backhanded a shot in the Stanley Cup",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_347",
+      "input": "Darius Slayton got into the endzone",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_348",
+      "input": "Gordon Hayward hit the back of the rim",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_349",
+      "input": "Jerry Jeudy scored on the power play",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_350",
+      "input": "Domantas Sabonis ran out of bounds",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_351",
+      "input": "James Harden scored in added time in the FA Cup",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_352",
+      "input": "Chris Godwin crossed the blue line in the Stanley Cup",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_353",
+      "input": "Toni Kroos was caught offsides",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_354",
+      "input": "Vincent Kompany scored a bicycle kick",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_355",
+      "input": "Kyle Tucker grounded out to second base in the World Series",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_356",
+      "input": "Tyler Lockett caught the back shoulder fade",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_357",
+      "input": "Robin Lehner swung to protect the runner in the World Series",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_358",
+      "input": "Yaya Toure scored a freekick",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_359",
+      "input": "Liam Hendricks was safe at first",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_360",
+      "input": "Mapou Yanga-M'Biwa performed a slide tackle",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_361",
+      "input": "Damian Lillard called for the screen in the Eastern Conference Finals",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_362",
+      "input": "Jordan Binnington got a base hit",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_363",
+      "input": "Tuukka Rask passed the puck",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_364",
+      "input": "Ozzie Albies pitched a complete game",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_365",
+      "input": "Robert Lewandowski scored a reverse layup",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_366",
+      "input": "David Luiz shot with the left foot",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_367",
+      "input": "Marcus Smart took a heat check three",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_368",
+      "input": "Stefon Diggs hit the slant pass",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_369",
+      "input": "Jonas Valanciunas comitted an offensive foul",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_370",
+      "input": "Javier Baez struck out in the World Series",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_371",
+      "input": "Roman Josi scored a windmill dunk",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_372",
+      "input": "Bo Bichette threw to first base",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_373",
+      "input": "Jack Eichel got into the endzone",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_374",
+      "input": "Brandin Cooks was safe at home",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_375",
+      "input": "Khyri Thomas  hit nothing but net",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_376",
+      "input": "Nicklas Backstrom earned a trip to the penalty box",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_377",
+      "input": "Ben Roethlisberger took a backhand shot",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_378",
+      "input": "Jaylen Brown was called for the goal tend",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_379",
+      "input": "Toni Kroos converted the first down in the AFC divisional round",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_380",
+      "input": "Caris LeVert scored a reverse dunk",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_381",
+      "input": "Bryce Harper hit a double in the American League Championship Series",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_382",
+      "input": "Pete Alonso hit a triple in the World Series",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_383",
+      "input": "Jose Altuve was out at first",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_384",
+      "input": "Robert Woods killed the powerplay",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_385",
+      "input": "Yoan Moncada was called for icing",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_386",
+      "input": "Norman Powell was called for the goal tend",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_387",
+      "input": "Gerard Pique watched the pitch go by in the National League Championship Series",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_388",
+      "input": "Connor McDavid wristed a shot",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_389",
+      "input": "Stephen Strasburg performed a cruyff turn",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_390",
+      "input": "Tom Wilson backhanded a shot",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_391",
+      "input": "Jayson Tatum nutmegged the defender",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_392",
+      "input": "LeBron James took a corner kick",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_393",
+      "input": "Collin Sexton nutmegged the defender",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_394",
+      "input": "Zach Plesac gained five yards in the NFC championship",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_395",
+      "input": "Paul Goldschmidt walked on ball four",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_396",
+      "input": "Lamar Jackson hit the back shoulder fade",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_397",
+      "input": "Giorgio Chiellini committed a handball in the FA Cup",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_398",
+      "input": "Collin Sexton took a throw in",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_399",
+      "input": "Tyler Glasnow threw to first base",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_400",
+      "input": "Christian Eriksen scored in extra time",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_401",
+      "input": "A.J. Green scored in the third period",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_402",
+      "input": "Lamar Jackson scored a touchdown",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_403",
+      "input": "Petr Cech was safe at first",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_404",
+      "input": "Michael Thomas took the snap",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_405",
+      "input": "Calvin Ridley ran out of bounds",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_406",
+      "input": "Carlos Tevez skated backwards",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_407",
+      "input": "Amari Cooper scored a touchdown",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_408",
+      "input": "Tuukka Rask killed the powerplay",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_409",
+      "input": "Drew Brees went for it on fourth down",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_410",
+      "input": "Ryan O'Reilly hit the wheel route",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_411",
+      "input": "Terry Rozier  shot from beyond the arc in the Western Conference Finals",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_412",
+      "input": "Sergio Ramos took a corner three in the Eastern Conference Finals",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_413",
+      "input": "Aaron Nola hit a walkoff homer",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_414",
+      "input": "Adalberto Mondesi was safe at first",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_415",
+      "input": "Gleyber Torres scored a bicycle kick",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_416",
+      "input": "Yaya Toure struck out",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_417",
+      "input": "Collin Sexton hit the buzzer beater",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_418",
+      "input": "Baker Mayfield went for it on fourth down",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_419",
+      "input": "Willian took a left footed shot in the Champions League Final",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_420",
+      "input": "James Harden was called for the goal tend",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_421",
+      "input": "Kyle Lowry dunked the ball",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_422",
+      "input": "Nerlens Noel was out at home",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_423",
+      "input": "Chris Paul  ran out of bounds",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_424",
+      "input": "Al Horford scored in the shootout",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_425",
+      "input": "Kenta Maeda caught the screen pass",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_426",
+      "input": "Luis Suarez fumbled the ball",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_427",
+      "input": "David Villa earned a red card in the World Cup",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_428",
+      "input": "George Springer committed a blocking foul",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_429",
+      "input": "Julio Jones passed the puck",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_430",
+      "input": "Kawhi Leonard hit the slant pass",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_431",
+      "input": "Mats Hummels earned a direct kick",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_432",
+      "input": "Stephan El Shaarawy shot with the left foot",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_433",
+      "input": "Rhys Hoskins hit a double in the American League Championship Series",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_434",
+      "input": "Kristaps Porzingis launched a hail mary",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_435",
+      "input": "A.J. Green hit the back shoulder fade in the Superbowl",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_436",
+      "input": "Ryan Tannehill converted the first down",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_437",
+      "input": "Kyle Palmieri did a double stepover",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_438",
+      "input": "Sean Couturier maradona'd the defender",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_439",
+      "input": "Luka Doncic  hit nothing but net",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_440",
+      "input": "Gordon Hayward was flagged on the play",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_441",
+      "input": "De'Aaron Fox scored a bicycle kick",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_442",
+      "input": "Paul Goldschmidt threw a touchdown",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_443",
+      "input": "Darius Slayton earned a trip to the penalty box",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_444",
+      "input": "Juan Mata scored a corner kick in the FA Cup",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_445",
+      "input": "T.Y. Hilton drew a flag on the play",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_446",
+      "input": "Marcell Ozuna scored a touchdown",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_447",
+      "input": "Luka Doncic  scored a reverse layup",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_448",
+      "input": "Jesus Luzardo was out at third",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_449",
+      "input": "Chris Godwin converted the first down in the AFC divisional round",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_450",
+      "input": "Franck Ribery earned an indirect kick",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_451",
+      "input": "Jonathan Toews scored a bicycle kick in the FA Cup",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_452",
+      "input": "Marcelo got on the end of a through ball",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_453",
+      "input": "Mathew Barzal called for the screen",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_454",
+      "input": "Vincent Kompany comitted a three second violation",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_455",
+      "input": "Michael Thomas killed the powerplay in the Stanley Cup",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_456",
+      "input": "Jamison Crowder airballed the shot",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_457",
+      "input": "Mathew Barzal banked the shot in in the NBA Championship",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_458",
+      "input": "Delon Wright went for it on fourth down",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_459",
+      "input": "Michael Porter Jr. was out at home",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_460",
+      "input": "Trevor Bauer swung to protect the runner in the World Series",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_461",
+      "input": "Moussa Dembele gained five yards",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_462",
+      "input": "Amari Cooper headed back to the dugout",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_463",
+      "input": "Carlos Correa threw to first base",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_464",
+      "input": "Henry Ruggs launched a hail mary in the NFC championship",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_465",
+      "input": "Miles Bridges hit the slant pass in the AFC divisional round",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_466",
+      "input": "Neymar did a double stepover",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_467",
+      "input": "Alex Pietrangelo took a backhand shot",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_468",
+      "input": "Alex Pietrangelo hit the screen pass in the NFC divisional round",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_469",
+      "input": "Pete Alonso hit a homerun",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_470",
+      "input": "Marquise Brown did a maradona on the defender",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_471",
+      "input": "Thiago Silva took a backhand shot in the Stanley Cup",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_472",
+      "input": "Gerrit Cole converted the double play",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_473",
+      "input": "Marouane Fellaini struck out",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_474",
+      "input": "Mike Williams scored a bicycle kick in the FA Cup",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_475",
+      "input": "James Karinchak crossed the blue line",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_476",
+      "input": "Buddy Hield crossed the blue line",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_477",
+      "input": "Cristiano Ronaldo converted the first down in the Superbowl",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_478",
+      "input": "Malik Beasley  drove into the restricted area",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_479",
+      "input": "Frederik Andersen took a three",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_480",
+      "input": "Keenan Allen was called for slashing in the Stanley Cup",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_481",
+      "input": "Joe Burrow was flagged on the play",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_482",
+      "input": "Connor McDavid scored a penalty kick",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_483",
+      "input": "Bam Adebayo took a turnaround jumper",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_484",
+      "input": "Claude Giroux went five hole",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_485",
+      "input": "Tua Tagovailoa was safe at home",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_486",
+      "input": "Adam Thielen changed direction in the backfield",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_487",
+      "input": "Julian Edelman fumbled the ball",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_488",
+      "input": "J.D. Martinez hit a homerun",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_489",
+      "input": "Kawhi Leonard scored a windmill dunk",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_490",
+      "input": "Edwin Diaz scored a bicycle kick",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_491",
+      "input": "Freddie Freeman banked the shot in",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_492",
+      "input": "Darijo Srna got on the end of a through ball",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_493",
+      "input": "Juan Soto spent time in the penalty box",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_494",
+      "input": "Kevin Durant walked to first base",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_495",
+      "input": "Edinson Cavani hit nothing but net",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_496",
+      "input": "Radamel Falcao hit the screen pass",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_497",
+      "input": "Fred VanVleet passed the puck",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_498",
+      "input": "Klaas Jan Huntelaar scored the easy layup",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_499",
+      "input": "John Collins took a turnaround jumper in the Eastern Conference Finals",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_500",
+      "input": "Connor McDavid earned a red card",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_501",
+      "input": "P.J. Washington pitched a shutout",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_502",
+      "input": "Gleyber Torres got a base hit",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_503",
+      "input": "William Nylander scored in the shootout in the Stanley Cup",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_504",
+      "input": "AJ Pollock walked to first base in the World Series",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_505",
+      "input": "Zach Werenski shot the puck",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_506",
+      "input": "Julio Jones was called for the goal tend",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_507",
+      "input": "Kawhi Leonard took a turnaround jumper",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_508",
+      "input": "Nick Castellanos scored in extra time",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_509",
+      "input": "Golden Tate was flagged on the play in the NFC championship",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_510",
+      "input": "Zach Plesac did a double stepover",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_511",
+      "input": "Khris Middleton scored a reverse dunk",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_512",
+      "input": "Tyler Boyd hit the screen pass in the NFC divisional round",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_513",
+      "input": "Max Pacioretty skated backwards",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_514",
+      "input": "Mathieu Valbuena was caught offsides",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_515",
+      "input": "Hulk hit a triple",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_516",
+      "input": "Aaron Nola converted the first down",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_517",
+      "input": "Jack Eichel dunked the ball",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_518",
+      "input": "Miro Heiskanen took to the ice in the Stanley Cup",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_519",
+      "input": "Tom Brady converted the first down",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_520",
+      "input": "Jacob Markstrom entered the attacking zone in the Stanley Cup",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_521",
+      "input": "Raisel Iglesias drove into the paint",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_522",
+      "input": "Kyle Connor scored a freekick",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_523",
+      "input": "Jayson Tatum was called for the goal tend",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_524",
+      "input": "Timo Meier took a backhand shot in the Stanley Cup",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_525",
+      "input": "Brandon Ingram shot the puck",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_526",
+      "input": "Jonas Valanciunas beat the buzzer",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_527",
+      "input": "LeBron James took a corner three",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_528",
+      "input": "Allen Robinson converted the first down",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_529",
+      "input": "Morgan Rielly swung to protect the runner",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_530",
+      "input": "Mario Balotelli took a left footed shot in the Champions League Final",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_531",
+      "input": "Nathan MacKinnon hit the wheel route",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_532",
+      "input": "Cooper Kupp launched the half court shot in the Western Conference Finals",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_533",
+      "input": "Stephan El Shaarawy hit a single",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_534",
+      "input": "Aaron Judge caught the back shoulder fade",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_535",
+      "input": "Kenny Golladay took the snap",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_536",
+      "input": "Kyle Tucker hit a homerun",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_537",
+      "input": "Brayden Schenn scored a corner kick",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_538",
+      "input": "Paulinho headed back to the dugout in the National League Championship Series",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_539",
+      "input": "Mookie Betts took a side-step three",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_540",
+      "input": "Emmanuel Sanders got a base hit",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_541",
+      "input": "Adam Thielen got on base",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_542",
+      "input": "Karl-Anthony Towns did a double stepover",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_543",
+      "input": "Andrea Pirlo went five hole",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_544",
+      "input": "Terry Rozier  shot a free throw",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_545",
+      "input": "Lonzo Ball took a long two",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_546",
+      "input": "Khyri Thomas  crossed the blue line",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_547",
+      "input": "Mapou Yanga-M'Biwa shot from outside the eighteen",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_548",
+      "input": "Gabriel Landeskog launched the desperation heave",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_549",
+      "input": "Trae Young launched a triple",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_550",
+      "input": "Fernando Tatis Jr. earned a red card",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_551",
+      "input": "Claude Giroux was called for icing",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_552",
+      "input": "Kailer Yamamoto performed a slide tackle in the European Cup",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_553",
+      "input": "Manny Machado hit a homerun",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_554",
+      "input": "Khyri Thomas  committed a three second violation in the NBA Championship",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_555",
+      "input": "Mike Conley called for the screen",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_556",
+      "input": "Alex Pietrangelo shot the puck in the Stanley Cup",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_557",
+      "input": "AJ Pollock pitched a complete game",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_558",
+      "input": "Fred VanVleet was called for the goal tend",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_559",
+      "input": "Nicklas Backstrom scored on the power play",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_560",
+      "input": "Miles Bridges worked a full count",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_561",
+      "input": "Toni Kroos scored a header goal",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_562",
+      "input": "Fred VanVleet took to the ice",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_563",
+      "input": "Matt Chapman hit a walkoff homer",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_564",
+      "input": "Javi Martinez earned a red card",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_565",
+      "input": "Stephen Curry took an elbow jumper",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_566",
+      "input": "John Collins threw a touchdown in the NFC divisional round",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_567",
+      "input": "Karim Benzema committed a blocking foul in the NBA Championship",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_568",
+      "input": "Vladimir Guerrero Jr. walked to first base",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_569",
+      "input": "Nick Foles changed direction in the backfield",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_570",
+      "input": "Zach LaVine  airballed the shot in the Western Conference Finals",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_571",
+      "input": "John Brown went for it on fourth down in the NFC championship",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_572",
+      "input": "Luka Modric committed a handball",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_573",
+      "input": "Ben Simmons called for the screen",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_574",
+      "input": "Ben Roethlisberger lost control of the puck",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_575",
+      "input": "Hyun Jin Ryu beat the shot clock",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_576",
+      "input": "Chris Boucher took a side-step three",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_577",
+      "input": "Juan Soto did a double stepover",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_578",
+      "input": "Patrick Kane caught the screen pass",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_579",
+      "input": "Marcus Semien took a left footed shot",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_580",
+      "input": "Andrei Vasilevskiy launched a hail mary",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_581",
+      "input": "Neal Pionk shot from the six yard line",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_582",
+      "input": "John Collins hit the buzzer beater in the NBA Championship",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_583",
+      "input": "Brad Hand hit a homerun",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_584",
+      "input": "Alex DeBrincat performed a give and go",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_585",
+      "input": "Evander Kane threw a touchdown",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_586",
+      "input": "Wayne Rooney threw a touchdown in the Superbowl",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_587",
+      "input": "Nick Castellanos grounded out to second base",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_588",
+      "input": "Julian Edelman was called for icing in the Stanley Cup",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_589",
+      "input": "De'Aaron Fox crossed the blue line",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_590",
+      "input": "James Harden backhanded a shot",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_591",
+      "input": "Kris Bryant stepped on first base",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_592",
+      "input": "Darcy Kuemper scored a bicycle kick",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_593",
+      "input": "Franck Ribery converted the first down",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_594",
+      "input": "Thomas Muller did a double stepover",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_595",
+      "input": "Jonathan Marchessault beat the buzzer in the NBA Championship",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_596",
+      "input": "Ketel Marte got into the endzone",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_597",
+      "input": "Darijo Srna earned a red card",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_598",
+      "input": "T.J. McConnell committed a blocking foul in the Western Conference Finals",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_599",
+      "input": "Daniele De Rossi got a base hit",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_600",
+      "input": "Ramires lost control of the puck",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_601",
+      "input": "Willian performed a cruyff turn in the Champions Leage Semifinal",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_602",
+      "input": "Gerrit Cole set the hard screen",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_603",
+      "input": "Tom Wilson pitched a shutout",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_604",
+      "input": "Ben Simmons was called for the goal tend",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_605",
+      "input": "Deshaun Watson took a corner kick",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_606",
+      "input": "Robin Lehner took to the ice",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_607",
+      "input": "Gleyber Torres hit a double",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_608",
+      "input": "Adam Thielen hit the screen pass",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_609",
+      "input": "Brad Hand threw to first base",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_610",
+      "input": "Marcell Ozuna hit a single",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_611",
+      "input": "Anders Lee shot the puck",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_612",
+      "input": "Mike Trout hit the buzzer beater",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_613",
+      "input": "Brady Tkachuk was called for slashing",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_614",
+      "input": "Zach LaVine  drove into the restricted area",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_615",
+      "input": "Trent Grisham scored a touchdown",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_616",
+      "input": "Claude Giroux killed the powerplay in the Stanley Cup",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_617",
+      "input": "Marcell Ozuna hit into a double play",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_618",
+      "input": "Sergio Aguero hit the buzzer beater in the NBA Championship",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_619",
+      "input": "Darius Garland  went one for two from the line",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_620",
+      "input": "Devin Booker shot a free throw in the NBA Championship",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_621",
+      "input": "Pierre-Luc Dubois scored in the shootout",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_622",
+      "input": "Yordan Alvarez was safe at first",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_623",
+      "input": "Connor McDavid threw a touchdown in the NFC divisional round",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_624",
+      "input": "Alex Bregman earned an indirect kick",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_625",
+      "input": "Mecole Hardman fumbled the ball",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_626",
+      "input": "Nelson Cruz was out at first",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_627",
+      "input": "William Nylander crossed the blue line",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_628",
+      "input": "David Luiz earned a direct kick",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_629",
+      "input": "Carson Wentz caught the screen pass",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_630",
+      "input": "Calvin Ridley skated behind the net",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_631",
+      "input": "Aaron Nola scored a header goal",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_632",
+      "input": "Nick Foles lost control of the puck",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_633",
+      "input": "J.T. Realmuto hit a homerun in the American League Championship Series",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_634",
+      "input": "Franmil Reyes was caught in a rundown",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_635",
+      "input": "Carlos Tevez converted the first down",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_636",
+      "input": "Ryan Tannehill scored a touchdown",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_637",
+      "input": "Frederik Andersen converted the first down",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_638",
+      "input": "Kyle Palmieri went in studs up",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_639",
+      "input": "Tyler Glasnow scored on the power play",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_640",
+      "input": "Sergio Ramos set the pick and roll",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_641",
+      "input": "Ezequiel Lavezzi was out at home in the American League Championship Series",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_642",
+      "input": "Jacob Markstrom scored in the shootout in the Stanley Cup",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_643",
+      "input": "Brent Burns shot the puck",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_644",
+      "input": "Kyrie Irving scored a reverse dunk",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_645",
+      "input": "Sterling Shepard hit a walkoff homer",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_646",
+      "input": "Bastian Schweinsteiger earned a direct kick",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_647",
+      "input": "Mike Evans ran out of bounds",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_648",
+      "input": "Robert Woods hit a triple",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_649",
+      "input": "Michael Conforto comitted a three second violation",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_650",
+      "input": "Ketel Marte was out at second",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_651",
+      "input": "Marcelo was out at third",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_652",
+      "input": "Caris LeVert scored a corner kick",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_653",
+      "input": "Courtland Sutton hit a triple",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_654",
+      "input": "Mitchell Trubisky caught the screen pass",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_655",
+      "input": "Zack Greinke struck out",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_656",
+      "input": "Kendrick Nunn took a charge",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_657",
+      "input": "Stephen Curry scored a reverse layup",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_658",
+      "input": "Hernanes performed a cruyff turn",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_659",
+      "input": "Pepe converted the first down",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_660",
+      "input": "Santi Cazorla called for the screen",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_661",
+      "input": "Robert Covington was called for icing",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_662",
+      "input": "Pedro scored a corner kick in the European Cup",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_663",
+      "input": "Nerlens Noel went for it on fourth down",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_664",
+      "input": "Delon Wright converted the first down",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_665",
+      "input": "Robert Lewandowski threw a touchdown",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_666",
+      "input": "Delon Wright was called for slashing",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_667",
+      "input": "Dougie Hamilton hit the buzzer beater",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_668",
+      "input": "Karl-Anthony Towns committed a blocking foul",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_669",
+      "input": "DeMar DeRozan was called for the goal tend",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_670",
+      "input": "Kevin Durant comitted an offensive foul",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_671",
+      "input": "Philip Rivers launched a hail mary",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_672",
+      "input": "Gardner Minshew was safe at home",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_673",
+      "input": "Devin Booker took a turnaround jumper",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_674",
+      "input": "Darius Garland  shot from beyond the arc",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_675",
+      "input": "Chris Paul  struck out the side",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_676",
+      "input": "Joey Gallo was perfect from the line",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_677",
+      "input": "Terry McLaurin beat the buzzer",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_678",
+      "input": "Mark Stone took a turnaround jumper",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_679",
+      "input": "Gardner Minshew was out at second",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_680",
+      "input": "Mitchell Marner nutmegged the defender",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_681",
+      "input": "Sergio Aguero maradona'd the defender",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_682",
+      "input": "Darijo Srna got on the end of a through ball",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_683",
+      "input": "Mats Hummels shot from outside the eighteen",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_684",
+      "input": "Jonathan Huberdeau fumbled the ball",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_685",
+      "input": "Mark Stone scored in the third period",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_686",
+      "input": "Taylor Hall scored in the shootout",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_687",
+      "input": "Johnny Gaudreau nutmegged the defender",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_688",
+      "input": "Nikola Jokic threw a touchdown in the AFC championship",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_689",
+      "input": "Justin Herbert maradona'd the defender",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_690",
+      "input": "Corbin Burnes went for it on fourth down in the NFC divisional round",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_691",
+      "input": "Dani Alves grounded out to second base",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_692",
+      "input": "Wesley Sneijder got on base in the American League Championship Series",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_693",
+      "input": "George Springer went five hole in the Stanley Cup",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_694",
+      "input": "Yoan Moncada fumbled the ball in the Superbowl",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_695",
+      "input": "Didier Drogba earned an indirect kick",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_696",
+      "input": "J.D. Martinez swung to protect the runner",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_697",
+      "input": "John Carlson entered the attacking zone in the Stanley Cup",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_698",
+      "input": "Clint Capela got into the endzone",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_699",
+      "input": "Juan Soto scored in the third period",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_700",
+      "input": "Robin Lehner was called for icing",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_701",
+      "input": "Kevin Durant scored the easy layup",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_702",
+      "input": "Jesus Luzardo headed back to the dugout",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_703",
+      "input": "Russell Wilson hit the back shoulder fade in the NFC divisional round",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_704",
+      "input": "Malcolm Brogdon ran out of bounds",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_705",
+      "input": "Mecole Hardman threw a touchdown",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_706",
+      "input": "Brandon Woodruff walked to first base in the American League Championship Series",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_707",
+      "input": "Oscar scored in the third period",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_708",
+      "input": "Nikola Jokic took a heat check three",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_709",
+      "input": "Neymar took a backhand shot in the Stanley Cup",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_710",
+      "input": "Manny Machado comitted an offensive foul in the Eastern Conference Finals",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_711",
+      "input": "Ronald Acuna Jr. pitched a complete game in the World Series",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_712",
+      "input": "Nick Castellanos flew out to center",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_713",
+      "input": "Tom Wilson scored a penalty kick",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_714",
+      "input": "Ezequiel Lavezzi hit the buzzer beater",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_715",
+      "input": "Chris Godwin walked to first base",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_716",
+      "input": "Ryan Nugent-Hopkins killed the powerplay",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_717",
+      "input": "Mason Plumlee did a maradona on the defender",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_718",
+      "input": "David Silva skated backwards",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_719",
+      "input": "Khyri Thomas  was out at second",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_720",
+      "input": "Jordan Binnington scored in the third period",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_721",
+      "input": "Carter Hart hit into a double play",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_722",
+      "input": "Blake Snell was safe at first",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_723",
+      "input": "Jack Flaherty was out at second in the National League Championship Series",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_724",
+      "input": "Terry McLaurin was called for slashing",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_725",
+      "input": "Blake Wheeler maradona'd the defender in the Champions Leage Semifinal",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_726",
+      "input": "Jakub Vrana skated backwards",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_727",
+      "input": "Brent Burns hit a double",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_728",
+      "input": "David Villa shot a free throw",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_729",
+      "input": "Marco Reus backhanded a shot",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_730",
+      "input": "Dylan Larkin walked on ball four",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_731",
+      "input": "Aleksander Barkov bricked the three pointer",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_732",
+      "input": "Shinji Kagawa went in studs up",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_733",
+      "input": "Mika Zibanejad passed the puck in the Stanley Cup",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_734",
+      "input": "Joe Ingles took a long two",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_735",
+      "input": "Javi Martinez scored in the shootout",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_736",
+      "input": "Xavi caught the back shoulder fade",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_737",
+      "input": "Bastian Schweinsteiger did a double stepover",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_738",
+      "input": "Chris Boucher comitted a three second violation",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_739",
+      "input": "Tuukka Rask was safe at home in the World Series",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_740",
+      "input": "Josh Hader scored a touchdown",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_741",
+      "input": "Devin Booker took to the ice",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_742",
+      "input": "Christian Yelich went in studs up in the World Cup",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_743",
+      "input": "Philip Rivers headed back to the dugout",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_744",
+      "input": "Baker Mayfield got into the endzone",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_745",
+      "input": "Nikola Jokic passed the puck",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_746",
+      "input": "Kendrick Nunn committed a three second violation",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_747",
+      "input": "Joao Moutinho scored a freekick in the World Cup",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_748",
+      "input": "Karl-Anthony Towns took a corner kick",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_749",
+      "input": "Julio Jones entered the attacking zone",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_750",
+      "input": "Jacob deGrom was flagged on the play",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_751",
+      "input": "Sean Couturier passed the puck in the Stanley Cup",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_752",
+      "input": "Zion Williamson scored the easy layup",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_753",
+      "input": "Marcelo earned a yellow card in the FA Cup",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_754",
+      "input": "Mike Trout eurostepped to the basket",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_755",
+      "input": "Will Fuller hit a walkoff homer",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_756",
+      "input": "Cam Newton converted the first down",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_757",
+      "input": "Mario Balotelli was out at second",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_758",
+      "input": "Caris LeVert scored the easy layup",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_759",
+      "input": "Whit Merrifield watched the pitch go by in the National League Championship Series",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_760",
+      "input": "Lionel Messi was called for icing",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_761",
+      "input": "Donovan Mitchell took a turnaround jumper",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_762",
+      "input": "Nick Foles scored in the third period in the Stanley Cup",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_763",
+      "input": "Joe Hart went for it on fourth down",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_764",
+      "input": "Jonathan Marchessault went five hole",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_765",
+      "input": "Juan Mata walked on ball four",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_766",
+      "input": "Zlatan Ibrahimovic took a turnaround jumper in the Western Conference Finals",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_767",
+      "input": "Sergio Busquets got on base",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_768",
+      "input": "Deandre Ayton was perfect from the line in the Eastern Conference Finals",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_769",
+      "input": "Yu Darvish walked to first base",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_770",
+      "input": "Igor Shesterkin wristed a shot",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_771",
+      "input": "Cesc Fabregas earned a direct kick",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_772",
+      "input": "Amari Cooper scored a penalty kick",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_773",
+      "input": "Steven Stamkos hit the slant pass",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_774",
+      "input": "Joe Hart eurostepped to the basket",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_775",
+      "input": "Igor Shesterkin launched a hail mary",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_776",
+      "input": "Pedro was perfect from the line in the Eastern Conference Finals",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_777",
+      "input": "Vladimir Guerrero Jr. took a side-step three in the NBA Championship",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_778",
+      "input": "Francisco Lindor hit a single",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_779",
+      "input": "Jimmy Garoppolo scored in the shootout in the Stanley Cup",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_780",
+      "input": "J.T. Miller took a three",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_781",
+      "input": "Patrik Laine entered the attacking zone in the Stanley Cup",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_782",
+      "input": "Alex Pietrangelo backhanded a shot",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_783",
+      "input": "Cooper Kupp scored in the third period in the Stanley Cup",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_784",
+      "input": "Cavan Biggio went in studs up",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_785",
+      "input": "Nick Castellanos hit the wheel route",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_786",
+      "input": "Carson Wentz converted the first down",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_787",
+      "input": "Matthew Stafford launched a hail mary",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_788",
+      "input": "LaMelo Ball launched the half court shot in the Western Conference Finals",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_789",
+      "input": "Robin Lehner launched the desperation heave",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_790",
+      "input": "Brandon Lowe took a left footed shot",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_791",
+      "input": "Franmil Reyes got on base",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_792",
+      "input": "Philip Rivers drove into the restricted area",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_793",
+      "input": "Thiago Silva hit a single",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_794",
+      "input": "Sam Darnold scored on the power play in the Stanley Cup",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_795",
+      "input": "Carter Hart eurostepped to the basket",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_796",
+      "input": "Robert Woods converted the first down",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_797",
+      "input": "Yu Darvish threw to first base",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_798",
+      "input": "Mark Stone spent time in the penalty box in the Stanley Cup",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_799",
+      "input": "Jayson Tatum took a side-step three in the NBA Championship",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_800",
+      "input": "Robert Lewandowski killed the powerplay in the Stanley Cup",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_801",
+      "input": "Juan Mata got on the end of a through ball",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_802",
+      "input": "Kevin Durant hit a walkoff homer",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_803",
+      "input": "Sean Couturier set the pick and roll",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_804",
+      "input": "Whit Merrifield was caught in a rundown",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_805",
+      "input": "Sebastian Aho scored a touchdown",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_806",
+      "input": "Mike Evans scored a touchdown in the AFC divisional round",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_807",
+      "input": "Zach Plesac was perfect from the line",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_808",
+      "input": "Delon Wright took a left footed shot",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_809",
+      "input": "Evan Fournier got into the endzone",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_810",
+      "input": "Jarvis Landry gained five yards",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_811",
+      "input": "Angel Di Maria got on the end of a through ball in the Champions League Final",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_812",
+      "input": "Jose Abreu threw to first base in the National League Championship Series",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_813",
+      "input": "Brandin Cooks caught the screen pass",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_814",
+      "input": "David Pastrnak skated backwards",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_815",
+      "input": "DK Metcalf launched a hail mary",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_816",
+      "input": "Jerry Jeudy caught the back shoulder fade",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_817",
+      "input": "Jimmy Garoppolo threw a touchdown",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_818",
+      "input": "Claude Giroux stepped on first base",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_819",
+      "input": "Adam Thielen scored in added time",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_820",
+      "input": "David Silva took a throw in",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_821",
+      "input": "Ramires scored a header goal",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_822",
+      "input": "Collin Sexton earned a yellow card",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_823",
+      "input": "Stephan El Shaarawy scored a corner kick",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_824",
+      "input": "Jerry Jeudy killed the powerplay",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_825",
+      "input": "Nick Castellanos hit nothing but net",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_826",
+      "input": "Petr Cech bricked the three pointer",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_827",
+      "input": "Sterling Shepard changed direction in the backfield",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_828",
+      "input": "Khyri Thomas  changed direction in the backfield in the NFC championship",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_829",
+      "input": "Thomas Muller shot from outside the eighteen",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_830",
+      "input": "Patrik Laine caught the screen pass",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_831",
+      "input": "Fred VanVleet scored a freekick in the Champions League Final",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_832",
+      "input": "Wayne Rooney watched the pitch go by",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_833",
+      "input": "Zach LaVine  swung to protect the runner",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_834",
+      "input": "Calvin Ridley committed a handball",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_835",
+      "input": "Jarrett Allen pitched a complete game in the National League Championship Series",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_836",
+      "input": "Joe Burrow caught the back shoulder fade in the Superbowl",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_837",
+      "input": "Anthony Davis scored the easy layup in the Western Conference Finals",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_838",
+      "input": "Jaren Jackson Jr. hit the screen pass",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_839",
+      "input": "DeMar DeRozan was safe at first",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_840",
+      "input": "Kyle Tucker launched a triple",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_841",
+      "input": "Clint Capela drew a flag on the play",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_842",
+      "input": "Leon Draisaitl grounded out to second base in the National League Championship Series",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_843",
+      "input": "Mario Balotelli hit the wheel route",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_844",
+      "input": "Jamison Crowder scored a reverse layup",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_845",
+      "input": "Javier Zanetti caught the screen pass",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_846",
+      "input": "Brad Marchand scored the easy layup",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_847",
+      "input": "Thomas Muller hit a triple",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_848",
+      "input": "Terry McLaurin took a long two",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_849",
+      "input": "Sebastian Aho scored a freekick",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_850",
+      "input": "Ramires performed a give and go",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_851",
+      "input": "Iker Casillas earned a direct kick",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_852",
+      "input": "Sean Monahan scored in the third period",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_853",
+      "input": "Ben Simmons banked the shot in",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_854",
+      "input": "Malik Beasley  skated backwards",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_855",
+      "input": "Mike Trout hit a double",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_856",
+      "input": "Jared Goff scored in added time",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_857",
+      "input": "J.T. Realmuto walked to first base",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_858",
+      "input": "Stephen Strasburg hit a triple",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_859",
+      "input": "Teddy Bridgewater scored on the power play",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_860",
+      "input": "Brandin Cooks went for it on fourth down",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_861",
+      "input": "Myles Turner committed a blocking foul",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_862",
+      "input": "Didier Drogba gained five yards",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_863",
+      "input": "Aaron Rodgers scored a freekick",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_864",
+      "input": "Jarvis Landry gained five yards",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_865",
+      "input": "Mookie Betts earned a direct kick",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_866",
+      "input": "Gordon Hayward comitted an offensive foul",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_867",
+      "input": "Brandon Woodruff hit a single",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_868",
+      "input": "Draymond Green took a three",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_869",
+      "input": "Eugenio Suarez watched the pitch go by",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_870",
+      "input": "Mike Moustakas scored a touchdown",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_871",
+      "input": "Anders Lee went in studs up in the Champions League Final",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_872",
+      "input": "Kenta Maeda threw to first base in the American League Championship Series",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_873",
+      "input": "Yordan Alvarez grounded out to second base",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_874",
+      "input": "Pierre-Luc Dubois launched a hail mary",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_875",
+      "input": "Arjen Robben earned a direct kick",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_876",
+      "input": "Kevin Durant scored a penalty kick",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_877",
+      "input": "James Harden shot a free throw",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_878",
+      "input": "Mario Gomez earned a direct kick",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_879",
+      "input": "Brandon Woodruff set the hard screen in the Eastern Conference Finals",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_880",
+      "input": "Marvin Jones lost control of the puck",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_881",
+      "input": "Drew Brees was flagged on the play",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_882",
+      "input": "Mike Trout was out at first",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_883",
+      "input": "Jack Flaherty walked to first base in the National League Championship Series",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_884",
+      "input": "Sean Monahan hit the wheel route",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_885",
+      "input": "Gareth Bale stepped on first base",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_886",
+      "input": "Kailer Yamamoto caught the back shoulder fade",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_887",
+      "input": "Cale Makar scored in the third period in the Stanley Cup",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_888",
+      "input": "Mitchell Trubisky caught the screen pass",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_889",
+      "input": "Ryan Tannehill was flagged on the play",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_890",
+      "input": "Pierre-Luc Dubois skated backwards",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_891",
+      "input": "Xander Bogaerts eurostepped to the basket",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_892",
+      "input": "Fernando Tatis Jr. hit a walkoff homer",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_893",
+      "input": "Alex Bregman hit a triple",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_894",
+      "input": "Stephen Curry comitted a three second violation",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_895",
+      "input": "Jack Flaherty hit a walkoff homer",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_896",
+      "input": "Jesus Luzardo hit a double",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_897",
+      "input": "Mike Moustakas watched the pitch go by",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_898",
+      "input": "Derek Carr fumbled the ball",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_899",
+      "input": "Teddy Bridgewater got into the endzone in the NFC championship",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_900",
+      "input": "Fernandinho took an elbow jumper",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_901",
+      "input": "Will Fuller caught the back shoulder fade in the NFC championship",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_902",
+      "input": "Javier Zanetti watched the pitch go by in the National League Championship Series",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_903",
+      "input": "Aaron Rodgers was flagged on the play",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_904",
+      "input": "Carlos Correa struck out the side",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_905",
+      "input": "John Tavares earned a trip to the penalty box in the Stanley Cup",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_906",
+      "input": "Bam Adebayo scored a reverse layup in the Western Conference Finals",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_907",
+      "input": "Pierre-Luc Dubois passed the puck",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_908",
+      "input": "Khyri Thomas  crossed the blue line",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_909",
+      "input": "Zach LaVine  was called for slashing",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_910",
+      "input": "Keenan Allen hit the screen pass",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_911",
+      "input": "Mario Gomez scored a reverse layup",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_912",
+      "input": "Mesut Ozil wristed a shot",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_913",
+      "input": "Cavan Biggio hit a walkoff homer",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_914",
+      "input": "Roman Josi walked on ball four",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_915",
+      "input": "Nazem Kadri took a charge in the NBA Championship",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_916",
+      "input": "Calvin Ridley drove into the paint",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_917",
+      "input": "Wesley Sneijder hit the wheel route",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_918",
+      "input": "George Springer drew a flag on the play",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_919",
+      "input": "Tyler Lockett took the snap in the AFC championship",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_920",
+      "input": "Edinson Cavani skated behind the net",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_921",
+      "input": "Fernandinho converted the first down",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_922",
+      "input": "Allen Robinson converted the first down",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_923",
+      "input": "Victor Wanyama took a left footed shot",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_924",
+      "input": "Leon Draisaitl converted the first down",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_925",
+      "input": "Zach LaVine  watched the pitch go by",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_926",
+      "input": "Kyle Tucker hit a triple",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_927",
+      "input": "Juan Mata scored a bicycle kick in the Champions League Final",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_928",
+      "input": "Diego Forlan nutmegged the defender in the FA Cup",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_929",
+      "input": "Derek Carr hit the screen pass in the Superbowl",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_930",
+      "input": "Marquise Brown drew a flag on the play",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_931",
+      "input": "Dak Prescott took the snap",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_932",
+      "input": "Kris Letang lost control of the puck",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_933",
+      "input": "Brad Hand hit a double",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_934",
+      "input": "Xander Bogaerts shot the puck",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_935",
+      "input": "Mike Trout passed the puck",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_936",
+      "input": "Ashley Cole was caught offsides",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_937",
+      "input": "Frederik Andersen crossed the blue line in the Stanley Cup",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_938",
+      "input": "Mario Gomez scored a reverse layup",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_939",
+      "input": "Tuukka Rask hit a double",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_940",
+      "input": "Anthony Davis beat the buzzer",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_941",
+      "input": "Connor Hellebuyck hit a triple",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_942",
+      "input": "Domantas Sabonis gained five yards in the AFC championship",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_943",
+      "input": "Sonny Gray flew out to center",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_944",
+      "input": "Marquise Brown hit the wheel route",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_945",
+      "input": "Luke Voit watched the pitch go by in the National League Championship Series",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_946",
+      "input": "Joao Moutinho scored a freekick",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_947",
+      "input": "Teddy Bridgewater caught the back shoulder fade",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_948",
+      "input": "Julius Randle headed back to the dugout",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_949",
+      "input": "Javier Mascherano took a left footed shot",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_950",
+      "input": "Andrei Svechnikov took ball four",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_951",
+      "input": "Bryce Harper fumbled the ball",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_952",
+      "input": "John Carlson entered the attacking zone",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_953",
+      "input": "Jonathan Marchessault skated backwards",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_954",
+      "input": "Javi Martinez launched the desperation heave",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_955",
+      "input": "Hulk got on base",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_956",
+      "input": "Max Scherzer was safe at first",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_957",
+      "input": "Mathieu Valbuena shot from outside the eighteen",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_958",
+      "input": "Juan Soto hit the slant pass in the NFC divisional round",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_959",
+      "input": "Xavi took a throw in",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_960",
+      "input": "Klaas Jan Huntelaar shot the puck",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_961",
+      "input": "Willian killed the powerplay",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_962",
+      "input": "Aleksander Barkov passed the puck",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_963",
+      "input": "Jared Goff fumbled the ball",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_964",
+      "input": "Marcell Ozuna took a backhand shot in the Stanley Cup",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_965",
+      "input": "Adam Thielen gained five yards",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_966",
+      "input": "Justin Herbert committed a three second violation",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_967",
+      "input": "Oscar ran out of bounds in the NFC championship",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_968",
+      "input": "Giannis Antetokounmpo threw a touchdown",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_969",
+      "input": "Deandre Ayton hit the back shoulder fade in the Superbowl",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_970",
+      "input": "Sebastian Aho hit a single",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_971",
+      "input": "Edinson Cavani caught the screen pass",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_972",
+      "input": "Kris Bryant got a base hit",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_973",
+      "input": "Kyle Anderson caught the screen pass",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_974",
+      "input": "Blake Wheeler was called for icing",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_975",
+      "input": "Zach LaVine  did a maradona on the defender",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_976",
+      "input": "Bastian Schweinsteiger scored in added time",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_977",
+      "input": "Russell Westbrook scored on the power play",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_978",
+      "input": "Aleksander Barkov took to the ice",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_979",
+      "input": "CJ McCollum shot from the six yard line",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_980",
+      "input": "Jacob deGrom hit a triple",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_981",
+      "input": "Jakub Vrana shot the puck",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_982",
+      "input": "Chris Kreider got on the end of a through ball",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_983",
+      "input": "Carson Wentz took to the ice",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_984",
+      "input": "Kyle Connor caught the back shoulder fade in the AFC championship",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_985",
+      "input": "Francisco Lindor walked on ball four",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_986",
+      "input": "Blake Wheeler took a three",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_987",
+      "input": "Dak Prescott caught the back shoulder fade",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_988",
+      "input": "Oscar took the snap",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_989",
+      "input": "Teuvo Teravainen shot the puck",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_990",
+      "input": "Jonas Valanciunas nutmegged the defender",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_991",
+      "input": "Carlos Correa headed back to the dugout",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_992",
+      "input": "Patrice Bergeron converted the first down",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_993",
+      "input": "Julio Jones was caught offsides",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_994",
+      "input": "Dwayne Haskins went for it on fourth down",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_995",
+      "input": "Marquise Brown fumbled the ball in the AFC championship",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_996",
+      "input": "Jacob Markstrom went in studs up",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_997",
+      "input": "Tyreek Hill caught the screen pass",
+      "output": [
+        "yes"
+      ]
+    },
+    {
+      "id": "task1805_sports_998",
+      "input": "Mathieu Valbuena scored a windmill dunk in the Western Conference Finals",
+      "output": [
+        "no"
+      ]
+    },
+    {
+      "id": "task1805_sports_999",
+      "input": "Javier Zanetti earned a direct kick",
+      "output": [
+        "yes"
+      ]
+    }
+  ]
+}

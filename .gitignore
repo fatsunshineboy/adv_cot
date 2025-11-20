@@ -1,0 +1,14 @@
+# Python bytecode
+*.pyc
+
+# Virtualenv
+venv/
+
+# Build
+build/
+dist/
+__pycache__/
+
+# IDE
+.vscode/
+.idea/
