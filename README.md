@@ -19,6 +19,9 @@ It is recommended to manage dependencies with `requirements.txt`. List core depe
 
 ```
 openai==2.8.1
+matplotlib==3.10.7
+numpy==2.3.5
+scipy==1.16.3
 ```
 
 ### 2.2 Installation Steps
